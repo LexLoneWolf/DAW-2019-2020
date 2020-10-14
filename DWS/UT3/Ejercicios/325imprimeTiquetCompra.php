@@ -1,6 +1,6 @@
 <?php 
 
-    include_once("323euros.php");
+    include_once("325euros.php");
 
     $productos = [];
     for ($i=0; $i < $_GET["cantidad"]; $i++) { 
@@ -36,6 +36,7 @@
                 <td><?= $valor['descripcion'] ?></td>
                 <td><?php echo $valor['precio'] . "€" ?></td>
                 <td><?php echo euros2Pesetas($valor['precio']) . "pts"; ?></td>
+                <td><?php echo euros2dolares($valor['precio']) . "$" ?></td>
             </tr>
             
         <?php } ?>
