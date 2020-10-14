@@ -1,18 +1,20 @@
 <?php 
 
 // 1€ = 166,386 pesetas
+// 1€ = 0.85 dólares
+// 1 peseta = 141.104 dólares
 
-// pesetas a euros
-
-//$n = $_GET["n"];
-
+// Pesetas a euros
 function pesetas2euros(int $cantidad , float $cotizacion = 166.386): float {
 
     return $cantidad / $cotizacion;
 }
 
+// Pesetas a dólares
+function pesetas2dolares(int $cantidad , float $cotizacion = 141.104): float){
 
-//echo "$n" . "pesetas son " . pesetas2euros($n) . "€<br />";
+    return $cantidad / $cotizacion;
+}
 
 // euros a pesetas
 function euros2pesetas(float $cantidad , float $cotizacion = 166.386): float {
@@ -20,6 +22,30 @@ function euros2pesetas(float $cantidad , float $cotizacion = 166.386): float {
     return $cantidad * $cotizacion;
 }
 
-//echo "$n" . "€ son " . euros2pesetas($n) . " pts";
+// Euros a dólares
+function euros2dolares(float $cantidad, float $cotizacion = 0.85): float {
+    
+    return $cantidad * $cotizacion;
+}
+
+// Dólares a euros
+function dolares2euros(float $cantidad, float $cotizacion = 0.85): float {
+    
+    return $cantidad / $cotizacion;
+}
+
+// Dólares a pesetas
+function dolares2Pesetas(float $cantidad , float $cotizacion = 141.104): float {
+
+    return $cantidad * $cotizacion;
+}
+
+
+
+
+
+
+
+
 
 ?>
