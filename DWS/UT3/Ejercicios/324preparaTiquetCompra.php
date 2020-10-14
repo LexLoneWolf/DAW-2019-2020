@@ -18,7 +18,7 @@
             <legend>Producto <?= $i ?></legend>
             <label for="descripcion<?= $i ?>">Descripción</label>
             <input type="text" name="descripcion<?= $i ?>" id="descripcion<?= $i ?>" />
-            <label for="precio<?= $i ?>">Precio €</label>
+            <label for="precio<?= $i ?>">Precio</label>
             <input type="number<?= $i ?>" name="precio<?= $i ?>" id="precio<?= $i ?>" />
             </fieldset>
         <?php } ?>
