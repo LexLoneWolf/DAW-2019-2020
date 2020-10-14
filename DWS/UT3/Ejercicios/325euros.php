@@ -17,7 +17,7 @@ function euros2pesetas(float $cantidad , float $cotizacion = 166.386): float {
 }
 
 // Pesetas a dólares
-function pesetas2dolares(int $cantidad , float $cotizacion = 141.104): float){
+function pesetas2dolares(int $cantidad , float $cotizacion = 141.104): float{
 
     return $cantidad / $cotizacion;
 }
@@ -25,13 +25,13 @@ function pesetas2dolares(int $cantidad , float $cotizacion = 141.104): float){
 // Euros a dólares
 function euros2dolares(float $cantidad, float $cotizacion = 0.85): float {
     
-    return $cantidad * $cotizacion;
+    return $cantidad / $cotizacion;
 }
 
 // Dólares a euros
 function dolares2euros(float $cantidad, float $cotizacion = 0.85): float {
     
-    return $cantidad / $cotizacion;
+    return $cantidad * $cotizacion;
 }
 
 // Dólares a pesetas
