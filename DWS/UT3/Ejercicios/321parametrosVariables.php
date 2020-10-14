@@ -1,10 +1,11 @@
 <?php 
     // Devuelve el mayor número de los parámetros introducidos.
     function mayor(): int {
-        $mayor = 0;
+        
         if (func_num_args() == 0) {
             return false;
         } else {
+            $mayor = 0;
             for ($i=0; $i < func_num_args(); $i++) { 
                 if ($mayor < func_get_arg($i)) {
                     $mayor = func_get_arg($i);
@@ -15,10 +16,11 @@
     }
     // Concatena los parámentros introducidos
     function concatenar(): string {
-        $str = "";
+       
         if (func_num_args() == 0) {
             return false;
         } else {
+            $str = "";
             for ($i=0; $i < func_num_args(); $i++) { 
                 $str.= func_get_arg($i);
             }
