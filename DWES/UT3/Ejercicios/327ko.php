@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo JS</title>
-    
+    <title>327ko</title>
 </head>
 <body>
-    <p>PRUEBA</p>
-    <script src="ejemplos1.js"></script>
+    <p>Usuario <?= $_GET["usuario"] ?> incorrecto</p>
 </body>
 </html>
