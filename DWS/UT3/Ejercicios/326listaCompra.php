@@ -1,6 +1,8 @@
 <?php
+    $titulo = "326listaCompra"; 
     include_once("325euros.php");
-    include_once("encabezado.php"); 
+    include_once("encabezado.php");
+    
     $productos = [];
     for ($i=0; $i < $_GET["cantidad"]; $i++) { 
         $productos[] = array(
@@ -23,5 +25,5 @@
 </ul>
 
 <?php 
-    include_once("pie.php");
+    include_once("pie.html");
 ?>

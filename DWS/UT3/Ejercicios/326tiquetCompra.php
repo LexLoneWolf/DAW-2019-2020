@@ -1,4 +1,5 @@
 <?php 
+    $titulo = "326tiquetCompra";
     include_once("encabezado.php");
     $cantidad = $_GET["cantidad"];
 ?>
@@ -20,5 +21,5 @@
 </form>
 
 <?php
-    include_once("pie.php");
+    include_once("pie.html");
 ?>
