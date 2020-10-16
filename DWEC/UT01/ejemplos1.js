@@ -54,3 +54,33 @@
 // for (let i = 0; i < 10; i++) {
 //     console.log(c - i);
 // }
+
+// let tam = prompt("Introduce tamaño");
+// for (let i = 1; i <= tam; i++) {
+//     for (let j = 1; j <= tam; j++) {
+//         if (i%2==0 && j == 1) {
+//             document.write("&nbsp;# ")
+//         }  else {
+//             document.write("# ")
+//         }
+//     }
+//     document.writeln("<br />");   
+// }
+
+let tam = prompt("Introduce tamaño");
+for (let i = 1; i <= tam; i++) {
+    for (let j = 1; j <= tam ; j++) {
+        if (i % 2 == 1 && j % 2 == 1) {
+            document.write("#");
+        } else if (i % 2 == 0 && j % 2 == 0) {
+            document.write("#");
+        } else {
+            document.write("&nbsp;");
+        }        
+    }
+    document.writeln("<br />"); 
+}
+     
+         
+    
+    
