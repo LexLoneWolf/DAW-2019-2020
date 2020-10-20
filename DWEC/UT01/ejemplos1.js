@@ -64,23 +64,61 @@
 //             document.write("# ")
 //         }
 //     }
-//     document.writeln("<br />");   
+//     document.writeln("<br />");
 // }
 
-let tam = prompt("Introduce tamaño");
-for (let i = 1; i <= tam; i++) {
-    for (let j = 1; j <= tam ; j++) {
-        if (i % 2 == 1 && j % 2 == 1) {
-            document.write("#");
-        } else if (i % 2 == 0 && j % 2 == 0) {
-            document.write("#");
-        } else {
-            document.write("&nbsp;");
-        }        
-    }
-    document.writeln("<br />"); 
-}
+// let tam = prompt("Introduce tamaño");
+
+// if (tam % 2 == 0) {
+//     tam++;
+// }
+
+// for (let i = 1; i <= tam; i++) {
+//     for (let j = 1; j <= tam ; j++) {
+//         if (i % 2 == 1 && j % 2 == 1) {
+//             document.write("#");
+//         } else if (i % 2 == 0 && j % 2 == 0) {
+//             document.write("#");
+//         } else {
+//             document.write("*");
+//         }
+//     }
+//     document.write("<br />");
+// }
+
      
          
-    
-    
+// for (let i = 1; i <= tam; i++) {
+//     for (let j = 1; j <= tam ; j++) {
+//         if ((i + j) % 2 == 0) {
+//             document.write("#");
+//         } else {
+//             document.write("*")
+//         }
+//     }
+//     document.write("<br />")
+// }  
+
+let ext = parseInt(prompt("Tamaño exterior"));
+let int = parseInt(prompt("Tamaño interior"));
+
+if (ext % 2 == 0) {
+    ext++;
+}
+
+if (int % 2 == 0) {
+    int++;
+}
+let tercio = ext/3;
+
+for (let i = 1; i <= ext; i++) {
+    for (let j = 1; j <= ext; j++) {
+        
+        if (j < tercio || j > tercio*2) {
+            document.write(".");
+        } else {
+            document.write("#");
+        }
+    }
+    document.write("<br />");
+}
