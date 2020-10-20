@@ -102,22 +102,27 @@
 let ext = parseInt(prompt("Tamaño exterior"));
 let int = parseInt(prompt("Tamaño interior"));
 
-if (ext % 2 == 0) {
-    ext++;
-}
-
-if (int % 2 == 0) {
-    int++;
-}
-let tercio = ext/3;
+let aux = (ext-int)/2; 
 
 for (let i = 1; i <= ext; i++) {
     for (let j = 1; j <= ext; j++) {
-        
-        if (j < tercio || j > tercio*2) {
-            document.write(".");
+        if ((i <=  aux || i > aux + int) && (j <= aux || j > ext - aux))  {
+            document.write("░");
         } else {
-            document.write("#");
+            document.write("▓");
+        }
+    }
+    document.write("<br />");
+}
+
+document.write("<br />");
+
+for (let i = 1; i <= ext; i++) {
+    for (let j = 1; j <= ext; j++) {
+        if ((i <=  aux || i > aux + int) || (j <= aux || j > ext - aux))  {
+            document.write("░");
+        } else {
+            document.write("▓");
         }
     }
     document.write("<br />");
