@@ -2,8 +2,10 @@
 
     include("330fraseImpares.php");
     include("331vocales.php");
+    include("332analizador.php");
     $str = $_GET["str"];
     $vocales = vocales($str);
+    $analizado = analizador($str);
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +26,10 @@
             }
         }
     ?>
+
+    
+
+
 
 </body>
 </html>
