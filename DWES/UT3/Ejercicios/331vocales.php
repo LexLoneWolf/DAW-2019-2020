@@ -1,6 +1,6 @@
 <?php 
 
-    // Función que devuelve la cantidad de cada una de las vocales y el total de ellas.
+    // Función que devuelve la cantidad de cada una de las vocales de una frase y el total de ellas.
     function vocales(string $str): array {
         $str = strtolower($str);
         $vocales = [
