@@ -5,20 +5,19 @@
 
         
         $palabras = explode(" ", $str);
-        trim($str);
+        $str = str_replace(" ", "", $str);
         $letras = str_split($str);
 
         $analizado = [
-            'totalLetras' => array_sum($letras),
-            'totalPalabras' => array_sum($palabras),
+            'totalLetras' => count($letras),
+            'totalPalabras' => count($palabras),
             'letrasxPalabra' => array()
         ];
-        
+       
         for ($i=0; $i < count($palabras); $i++) { 
-            $cantLetrasPalabra = strlen($palabras[$i]);
-            $analizado['letrasxPalabra'] = $palabras[$i] => $cantLetrasPalabra;
+            $analizado['letrasxPalabra'][$palabras[$i]] = strlen($palabras[$i]);
         }
-
+        
         return $analizado;
     }
 

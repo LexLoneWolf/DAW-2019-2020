@@ -16,20 +16,37 @@
     <title>TEST</title>
 </head>
 <body>
+    <p><?= $str ?></p>
+    <p>FRASE IMPARES</p>
     <?php 
         
         echo fraseImpares($str) . "<br />";
-        echo "La frase: $str contiene un total de " . $vocales['t'] . " vocales<br />";
+    ?>
+
+    <p>VOCALES</p>
+    <?php 
+    
+        echo "La frase: $str contiene un total de " . $vocales['t'] . " vocales<br /><br />";
         foreach ($vocales as $vocal => $value) {
             if ($vocal != 't') {
                 echo "La vocal " . $vocal . " aparece " . $value . " veces<br />";
             }
-        }
-    ?>
+        }?>
 
-    
-
-
+    <p>ANALIZADOR</p>
+    <?= $str ?>
+    <p>Cantidad de letras: <?= $analizado['totalLetras'] ?></p>
+    <p>Cantidad de palabras: <?= $analizado['totalPalabras'] ?></p>
+    <ul>
+    <?php
+    foreach ($analizado as $key => $value) {
+        if ($key == 'letrasxPalabra') {
+            foreach ($value as $palabra => $cantLetras) { ?>
+                <li><?= $palabra ?>: <?= $cantLetras ?> letras</li>
+            <?php }
+        } ?>
+    <?php } ?>
+    </ul>
 
 </body>
 </html>
