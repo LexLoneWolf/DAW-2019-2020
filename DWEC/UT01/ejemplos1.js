@@ -99,31 +99,38 @@
 //     document.write("<br />")
 // }  
 
-let ext = parseInt(prompt("Tamaño exterior"));
-let int = parseInt(prompt("Tamaño interior"));
+// let ext = parseInt(prompt("Tamaño exterior"));
+// let int = parseInt(prompt("Tamaño interior"));
 
-let aux = (ext-int)/2; 
+// let aux = (ext-int)/2; 
 
-for (let i = 1; i <= ext; i++) {
-    for (let j = 1; j <= ext; j++) {
-        if ((i <=  aux || i > aux + int) && (j <= aux || j > ext - aux))  {
-            document.write("░");
-        } else {
-            document.write("▓");
-        }
-    }
-    document.write("<br />");
+// for (let i = 1; i <= ext; i++) {
+//     for (let j = 1; j <= ext; j++) {
+//         if ((i <=  aux || i > aux + int) && (j <= aux || j > ext - aux))  {
+//             document.write("░");
+//         } else {
+//             document.write("▓");
+//         }
+//     }
+//     document.write("<br />");
+// }
+
+// document.write("<br />");
+
+// for (let i = 1; i <= ext; i++) {
+//     for (let j = 1; j <= ext; j++) {
+//         if ((i <=  aux || i > aux + int) || (j <= aux || j > ext - aux))  {
+//             document.write("░");
+//         } else {
+//             document.write("▓");
+//         }
+//     }
+//     document.write("<br />");
+// }
+
+
+for (let i = 0; i <= 32; i++) {
+    console.log();   
 }
 
-document.write("<br />");
 
-for (let i = 1; i <= ext; i++) {
-    for (let j = 1; j <= ext; j++) {
-        if ((i <=  aux || i > aux + int) || (j <= aux || j > ext - aux))  {
-            document.write("░");
-        } else {
-            document.write("▓");
-        }
-    }
-    document.write("<br />");
-}

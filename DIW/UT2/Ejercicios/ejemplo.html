@@ -8,14 +8,14 @@
 </head>
 
 <body>
-
+    <p>ENCABEZADOS</p>
     <h1>Bienvenidos a DIW</h1>
     <h2>Bienvenidos a DIW</h2>
     <h3>Bienvenidos a DIW</h3>
     <h4>Bienvenidos a DIW</h4>
     <h5>Bienvenidos a DIW</h5>
     <h6>Bienvenidos a DIW</h6>
-
+    <p>FORMATOS</p>
     <pre>1    2       3           4</pre>
 
     <p style="color:#e25f2b;">Texto de ejemplo</p>
@@ -31,13 +31,13 @@
     <p><ins>Subrayado</ins></p>
     <p><del>Rayado</del></p>
     <p><mark>Marca</mark></p>
-
+    <p>IMAGENES</p>
     <img src="./img/fondo.jpg" alt="Imagen" style="width: 300px;">
     <br />
     <p><a href="./img/fondo.jpg" target="_blank">Pincha</a></p>
 
     <br />
-
+    <p>TABLAS</p>
     <table border="1" style="text-align: center;">
         <tr>
             <td>1</td>
@@ -83,10 +83,19 @@
     </table>
 
     <br />
+    <p>FORMULARIOS</p>
+    <form id="ejemplo" action="ejemplo.html" method="GET">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo" maxlength="30"/><br />
+        <label for="pass">Contraseña:</label>
+        <input type="password" id="pass" name="pass" placeholder="Contraseña"/><br />
+        <input type="hidden" id="oculto" name="oculto" value="contraseñausuario" /><br />
+        <input type="radio" name="opcion" id="opcion" value="opcion1" />Opción 1<br />
+        <input type="radio" name="opcion" id="opcion" value="opcion2" />Opción 2<br />
 
-    <form action="" method="POST">
 
-        
+        <input type="submit" value="Enviar" /><br />
+        <input type="button" value="Enviar" onclick="console.log('click')" />
 
     </form>
 </body>
