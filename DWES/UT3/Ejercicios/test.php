@@ -3,9 +3,11 @@
     include("330fraseImpares.php");
     include("331vocales.php");
     include("332analizador.php");
+    include("332analizadorWC.php");
     $str = $_GET["str"];
     $vocales = vocales($str);
     $analizado = analizador($str);
+    $analizadoWC = analizadorWC($str);
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +42,21 @@
     <ul>
     <?php
     foreach ($analizado as $key => $value) {
+        if ($key == 'letrasxPalabra') {
+            foreach ($value as $palabra => $cantLetras) { ?>
+                <li><?= $palabra ?>: <?= $cantLetras ?> letras</li>
+            <?php }
+        } ?>
+    <?php } ?>
+    </ul>
+
+    <p>ANALIZADOR WC</p>
+    <?= $str ?>
+    <p>Cantidad de letras: <?= $analizadoWC['totalLetras'] ?></p>
+    <p>Cantidad de palabras: <?= $analizadoWC['totalPalabras'] ?></p>
+    <ul>
+    <?php
+    foreach ($analizadoWC as $key => $value) {
         if ($key == 'letrasxPalabra') {
             foreach ($value as $palabra => $cantLetras) { ?>
                 <li><?= $palabra ?>: <?= $cantLetras ?> letras</li>

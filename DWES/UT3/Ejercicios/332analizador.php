@@ -3,13 +3,9 @@
     // Función que recibe una cadena y devuelve el número de letras y palabras
     function analizador(string $str): array {
 
-        
         $palabras = explode(" ", $str);
-        $str = str_replace(" ", "", $str);
-        $letras = str_split($str);
-
         $analizado = [
-            'totalLetras' => count($letras),
+            'totalLetras' => strlen(str_replace(" ", "",$str)),
             'totalPalabras' => count($palabras),
             'letrasxPalabra' => array()
         ];
