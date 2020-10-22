@@ -1,5 +1,7 @@
 <?php 
 
+    $str = $_GET["str"];
+
     // Función que recibe una cadena y devuelve el número de letras y palabras
     function analizadorWC(string $str): array {
         
@@ -15,4 +17,31 @@
         }
         return $analizado;
     }
+
+    $analizadoWC = analizadorWC($str);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>analizadorWC</title>
+</head>
+<body>
+<p>ANALIZADOR WC</p>
+    <?= $str ?>
+    <p>Cantidad de letras: <?= $analizadoWC['totalLetras'] ?></p>
+    <p>Cantidad de palabras: <?= $analizadoWC['totalPalabras'] ?></p>
+    <ul>
+    <?php
+    foreach ($analizadoWC as $key => $value) {
+        if ($key == 'letrasxPalabra') {
+            foreach ($value as $palabra => $cantLetras) { ?>
+                <li><?= $palabra ?>: <?= $cantLetras ?> letras</li>
+            <?php }
+        } ?>
+    <?php } ?>
+    </ul>
+</body>
+</html>

@@ -4,10 +4,14 @@
     include("331vocales.php");
     include("332analizador.php");
     include("332analizadorWC.php");
+    include("333cani.php");
+    include("334palindromo.php");
     $str = $_GET["str"];
     $vocales = vocales($str);
     $analizado = analizador($str);
     $analizadoWC = analizadorWC($str);
+    $cani = cani($str);
+    $palindromo = palindromo($str);
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +68,27 @@
         } ?>
     <?php } ?>
     </ul>
+
+    <p>CANI</p>
+
+    <?php 
+
+        echo $cani;
+    
+    ?>
+
+    <p>PALINDROMO</p>
+
+    <?php 
+    
+        if (!$palindromo) {   
+            echo "$str no es palíndromo";
+        } else {
+            echo "$str es palíndromo";
+        }
+        
+    ?>
+
 
 </body>
 </html>
