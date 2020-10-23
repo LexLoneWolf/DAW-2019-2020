@@ -9,11 +9,9 @@
             if (ctype_alpha($str)) {
                 if ($str[$i] >= ord('A') && $str[$i] <= ord('z')) {
                     $str[$i] = chr(ord($str[$i]+$desplazamiento));
-                }
-
-                if ($str[$i] == ord('z')) {
-                    $str[$i] = chr(ord('a')+$desplazamiento);
-                }
+                } else if (ord($str[$i]) + $desplazamiento > ord('z')) {
+                    $str[$i] = chr((ord('a') + ((ord($str[$i]) + $desplazamiento)- ord('z')))-1);
+                }    
             }
         }
         return $str;
