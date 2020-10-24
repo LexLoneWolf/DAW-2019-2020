@@ -6,13 +6,15 @@
     function codificar(string $str, int $desplazamiento ): string {
         $tam = strlen($str);
         for ($i=0; $i < $tam; $i++) { 
-            if (ctype_alpha($str)) {
-                if ($str[$i] >= ord('A') && $str[$i] <= ord('z')) {
-                    $str[$i] = chr(ord($str[$i]+$desplazamiento));
-                } else if (ord($str[$i]) + $desplazamiento > ord('z')) {
-                    $str[$i] = chr((ord('a') + ((ord($str[$i]) + $desplazamiento)- ord('z')))-1);
-                }    
-            }
+            if (ctype_alpha($str[$i])) {
+                if (ord($str[$i]) + $desplazamiento > ord('z')) {
+                    $str[$i] = chr(ord('a') + ((ord($str[$i]) + $desplazamiento) - ord('z'))-1);
+                } else if (ord($str[$i]) >= ord('A') && ord($str[$i]) <= ord('Z') && ord($str[$i]) + $desplazamiento > ord('Z')){
+                    $str[$i] = chr(ord('A') + ((ord($str[$i]) + $desplazamiento) - ord('Z'))-1);
+                } else {
+                    $str[$i] = chr(ord($str[$i])+$desplazamiento);
+                }
+            } 
         }
         return $str;
     }   
