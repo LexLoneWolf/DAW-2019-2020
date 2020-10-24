@@ -17,7 +17,7 @@
                     } else if ($ord_i >= ord('A') && $ord_i <= ord('Z') && $ord_i + $desp > ord('Z')){
                         $str[$i] = chr(ord('A') + (($ord_i + $desp) - ord('Z'))-1);
                     } else {
-                        $str[$i] = chr($ord_i+$desp);
+                        $str[$i] = chr($ord_i + $desp);
                     }
                 } 
             }
