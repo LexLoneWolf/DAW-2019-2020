@@ -92,10 +92,32 @@
         <input type="hidden" id="oculto" name="oculto" value="contraseñausuario" /><br />
         <input type="radio" name="opcion" id="opcion" value="opcion1" />Opción 1<br />
         <input type="radio" name="opcion" id="opcion" value="opcion2" />Opción 2<br />
+        <input type="checkbox" name="condiciones" checked />Condición<br />
+        <label for="color">Elija un color</label>
+        <input type="color" name="condiciones" checked />Condición<br />
+        <label for="time">Hora</label>
+        <input type="time" name="hora" /><br>
+        <label for="fecha">Fecha</label>
+        <input type="date" name="fecha" /><br>
+        <label for="mes">Mes</label>
+        <input type="month" name="mes" /><br />
+        <label for="semana">Semana</label>
+        <input type="week" name="semana" /><br />
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Email" /><br />
+        <label for="numero">Número</label>
+        <input type="number" name="numero" step="5" min="0" max="100"/><br />
+        <label for="rango">Rango</label>
+        <input type="range" name="rango" /><br />
+        <label for="buscar">Buscar</label>
+        <input type="search" name="buscar" /><br />
+        <label for="telefono">Teléfono</label>
+        <input type="tel" name="telefono" /><br />
+        <label for="url">Enlace</label>
 
 
         <input type="submit" value="Enviar" /><br />
-        <input type="button" value="Enviar" onclick="console.log('click')" />
+        <input type="button" value="Enviar" onclick="submit();" />
 
     </form>
 </body>
