@@ -12,4 +12,3 @@ while (n != n2) {
 if (n == n2) {
     alert("!Enhorabuena lo has adivinado!"); 
 }
-
