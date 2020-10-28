@@ -87,39 +87,77 @@
     <form id="ejemplo" action="ejemplo.html" method="GET">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo" maxlength="30"/><br />
+
         <label for="pass">Contraseña:</label>
         <input type="password" id="pass" name="pass" placeholder="Contraseña"/><br />
+
         <input type="hidden" id="oculto" name="oculto" value="contraseñausuario" /><br />
+
         <input type="radio" name="opcion" id="opcion" value="opcion1" />Opción 1<br />
         <input type="radio" name="opcion" id="opcion" value="opcion2" />Opción 2<br />
+
         <input type="checkbox" name="condiciones" checked />Condición<br />
+
         <label for="color">Elija un color</label>
         <input type="color" name="condiciones" checked />Condición<br />
+
         <label for="time">Hora</label>
         <input type="time" name="hora" /><br>
+
         <label for="fecha">Fecha</label>
         <input type="date" name="fecha" /><br>
+
         <label for="mes">Mes</label>
         <input type="month" name="mes" /><br />
+
         <label for="semana">Semana</label>
         <input type="week" name="semana" /><br />
+
         <label for="email">Email</label>
         <input type="email" name="email" id="email" placeholder="Email" /><br />
+
         <label for="numero">Número</label>
         <input type="number" name="numero" step="5" min="0" max="100"/><br />
+
         <label for="rango">Rango</label>
         <input type="range" name="rango" /><br />
+
         <label for="buscar">Buscar</label>
         <input type="search" name="buscar" /><br />
+
         <label for="telefono">Teléfono</label>
         <input type="tel" name="telefono" /><br />
+
         <label for="url">Enlace</label>
+        <input type="url" name="link" id="link" /><br />
+
+        <textarea name="texto" id="texto" cols="15" rows="10" placeholder="texto de prueba">
+            TEXTO
+        </textarea><br />
+
+        <select name="desplegable" id="desplegable" multiple size="2">
+            <option value="opcion1">Opción 1</option>
+            <option value="opcion2" selected>Opción 2</option>
+            <option value="opcion3">Opción 3</option>
+        </select><br />
+
+        <input list="lista" name="elementos"/>
+        <datalist id="lista">
+            <option value="elemento1">Elemento 1</option>
+            <option value="elemento2">Elemento 2</option>
+            <option value="elemento3">Elemento 3</option>   
+        </datalist>
 
 
-        <input type="submit" value="Enviar" /><br />
-        <input type="button" value="Enviar" onclick="submit();" />
 
+        <button type="button" onclick="alert('=D');">Click<br/>Me</button><br />
+            
+        <input type="submit" value="Botón Submit" /><br />
+
+        <input type="button" value="Botón onclick submit" onclick="submit();" />
     </form>
+
+    
 </body>
 
 </html>
