@@ -9,10 +9,13 @@
 
 
         $contrasenya = "";
-        for ($i=0; $i < $tam-1; $i++) { 
-            $contrasenya .= letraAleatoria();
+        for ($i=0; $i < $tam-1; $i++) {
+            if ($i % 2 == 0) {
+                $contrasenya .= rand(0,9);
+            } else {
+                $contrasenya .= letraAleatoria();
+            }  
         }
-
         $contrasenya = str_shuffle($contrasenya);
         return $contrasenya;
     }
