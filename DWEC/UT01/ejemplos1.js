@@ -127,3 +127,15 @@
 //     }
 //     document.write("<br />");
 // }
+
+
+let str = "tengo sueño, hambre y me quiero ir a casa";
+
+for (let i = 0; i < str.length; i++) {
+    console.log(str[i]);
+}
+console.log(str.replace(/o/g, "X"));
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log(" ");
