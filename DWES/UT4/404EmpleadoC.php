@@ -7,24 +7,17 @@
         private $apellidos;
         private $sueldo;
         private $telefonos = [];
+        public const SUELDO_TOPE = 3333;
+
+        // Constructor
+
+        public function __construct(string $nombre, string $apellidos, int $sueldo = 1000) {
+            $this->nombre = $nombre;
+            $this->apellidos = $apellidos;
+            $this->sueldo = $sueldo;
+        }
 
         // Getters y Setters
-
-        public function setNombre(string $nombre) {
-            $this->nombre=$nombre;
-        }
-
-        public function getNombre(): string {
-            return $this->nombre;
-        }
-
-        public function setApellidos(string $apellidos) {
-            $this->apellidos=$apellidos;
-        }
-
-        public function getApellidos(): string {
-            return $this->apellidos;
-        }
 
         public function setSueldo(int $sueldo) {
             $this->sueldo=$sueldo;
@@ -44,7 +37,7 @@
         public function debePagarImpuestos(): bool {
             $impuestos = false;
 
-            if ($this->sueldo > 3333) {
+            if ($this->sueldo > self::SUELDO_TOPE) {
                 $impuestos = true;
             }
 
@@ -66,10 +59,8 @@
         }
     }
 
-    $e1 = new Empleado();
+    $e1 = new Empleado("Alexis", "Coves Berna");
 
-    $e1->setNombre("Alexis");
-    $e1->setApellidos("Coves Berna");
     $e1->setSueldo(3334);
 
     echo "Nombre: ".$e1->imprimirNombreCompleto() . "<br />";

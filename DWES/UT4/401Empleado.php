@@ -58,7 +58,7 @@
     $e1->setApellidos("Coves Berna");
     $e1->setSueldo(3334);
 
-    echo $e1->imprimirNombreCompleto() . "<br />";
+    echo "Nombre: ".$e1->imprimirNombreCompleto() . "<br />";
     
     if (!$e1->debePagarImpuestos()) {
         echo "No debe pagar impuestos";

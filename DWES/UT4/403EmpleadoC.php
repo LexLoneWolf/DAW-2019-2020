@@ -75,5 +75,7 @@
     $e1->anyadirTelefonos(691317652);
     $e1->anyadirTelefonos(111222333);
 
-    echo $e1->listarTelefonos();
+    if (strlen($e1->listarTelefonos()) > 0) {
+        echo "Teléfonos: ".$e1->listarTelefonos();
+    }
 ?>
