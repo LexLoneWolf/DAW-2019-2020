@@ -44,7 +44,6 @@
 
         public function debePagarImpuestos(): bool {
             $impuestos = false;
-
             if ($this->sueldo > self::$sueldoTope) {
                 $impuestos = true;
             }
@@ -67,16 +66,23 @@
         }
 
         public static function toHtml(Empleado $emp): string {
+            $nombreCompleto = $emp->imprimirNombreCompleto();
+            $sueldo = $emp->getSueldo();
             $impuestos = "";
-            if (!$this->debePagarImpuestos()) {
-                $impuestos = "<p>No debe pagar impuestos</p>";
+            $telefonos = explode(", ", $emp->listarTelefonos());
+            if (!$emp->debePagarImpuestos()) {
+                $impuestos = "No debe pagar impuestos";
             } else {
-                $impuestos = "<p>Debe pagar impuestos</p>";
+                $impuestos = "Debe pagar impuestos";
             }
 
-            $empleado = "<p>".$this->imprimirNombreCompleto()."</p>".
-                $impuestos."<php if"
-                
+            $empleado = "
+            <p>Nombre: $nombreCompleto</p>
+            <p>Sueldo: $sueldo</p>
+            <p>Impuestos: $impuestos</p>
+            ";
+            
+            return $empleado;
         }
     }
 
@@ -99,3 +105,5 @@
     if (strlen($e1->listarTelefonos()) > 0) {
         echo "Teléfonos: ".$e1->listarTelefonos();
     }
+
+    Empleado::toHtml($e1);
