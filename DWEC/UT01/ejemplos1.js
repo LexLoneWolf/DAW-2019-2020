@@ -129,13 +129,49 @@
 // }
 
 
-let str = "tengo sueño, hambre y me quiero ir a casa";
+// let str = "tengo sueño, hambre y me quiero ir a casa";
 
-for (let i = 0; i < str.length; i++) {
-    console.log(str[i]);
+// for (let i = 0; i < str.length; i++) {
+//     console.log(str[i]);
+// }
+// console.log(str.replace(/o/g, "X"));
+// console.log(" ");
+// console.log(" ");
+// console.log(" ");
+// console.log(" ");
+
+function mostrar(array) {
+    console.log("El tamaño del array es:" + array.length);
+    for (let numero of array) {
+        console.log(numero);
+    }
 }
-console.log(str.replace(/o/g, "X"));
-console.log(" ");
-console.log(" ");
-console.log(" ");
-console.log(" ");
+
+let numeros = [];
+let mayor = 0;
+let pos = 0;
+for (let i = 0; i < 20; i++) {
+    numeros[i] = Math.floor(Math.random() * 100)+1;
+    if (mayor < numeros[i]) {
+        mayor = numeros[i];
+        pos = i;
+    }
+}
+
+for (let i = 0; i < numeros.length; i++) {
+    console.log(numeros[i]);
+}
+
+
+mayor = -1;
+pos = -1;
+
+for (let i in numeros) {
+    [mayor,pos]=numeros[i]>mayor?[numeros[i],i]:[mayor,pos];
+}
+
+console.log("El mayor número es "+ mayor + " en la posición " + pos);
+
+
+
+
