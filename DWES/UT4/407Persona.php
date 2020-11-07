@@ -1,10 +1,36 @@
 <?php 
 
-    class Empleado {
+    class Persona {
 
         // Atributos
-        private $nombre;
-        private $apellidos;
+        protected $nombre;
+        protected $apellidos;
+
+        // Constructor
+        public function __construct(string $nombre, string $apellidos) {
+            $this->nombre = $nombre;
+            $this->apellidos = $apellidos;
+        }
+
+        // Getters y setters
+        public function setNombre(string $nombre) {
+            $this->nombre=$nombre;
+        }
+
+        public function setApellidos(string $apellidos) {
+            $this->apellidos=$apellidos;
+        }
+
+        public function getApellidos(): string {
+            return $this->apellidos;
+        }
+    }
+
+
+
+    class Empleado extends Persona {
+
+        // Atributos
         private $sueldo;
         private $telefonos = [];
         static $sueldoTope = 3333;
@@ -12,8 +38,7 @@
         // Constructor
 
         public function __construct(string $nombre, string $apellidos, int $sueldo = 1000) {
-            $this->nombre = $nombre;
-            $this->apellidos = $apellidos;
+            parent::__construct($nombre, $apellidos);
             $this->sueldo = $sueldo;
         }
 
@@ -67,16 +92,37 @@
         }
 
         public static function toHtml(Empleado $emp): string {
+            $nombre = $emp->imprimirNombreCompleto();
+            $sueldo = $emp->getSueldo();
             $impuestos = "";
-            if (!$this->debePagarImpuestos()) {
-                $impuestos = "<p>No debe pagar impuestos</p>";
-            } else {
-                $impuestos = "<p>Debe pagar impuestos</p>";
+            $telefonos = $emp->listarTelefonos();
+            $telefono = "";
+
+            if (strlen($telefonos) > 0) {
+                for ($i=0; $i < strlen($telefonos); $i+=11) {
+
+                    $telefono .= "<li>".substr($telefonos,$i,9)."</li>"; 
+                }
             }
 
-            $empleado = "<p>".$this->imprimirNombreCompleto()."</p>".
-                $impuestos."<php if"
+            if (!$emp->debePagarImpuestos()) {
+                $impuestos = "No debe pagar impuestos";
+            } else {
+                $impuestos = "Debe pagar impuestos";
+            }
+
+            $empleado = "
+            <p>Empleado: </p>
+            <p>Nombre: $nombre</p>
+            <p>Sueldo: $sueldo</p>
+            <p>Impuestos: $impuestos</p>
+            <p>Teléfonos:</p>
+            <ol>
+                $telefono
+            <ol>
+            ";
                 
+            return $empleado;       
         }
     }
 
@@ -85,17 +131,17 @@
     $e1->setSueldoTope(3334);
     $e1->setSueldo(3334);
 
-    echo "Nombre: ".$e1->imprimirNombreCompleto() . "<br />";
-    
-    if (!$e1->debePagarImpuestos()) {
-        echo "No debe pagar impuestos"."<br />";
-    } else {
-        echo "Debe pagar impuestos"."<br />";
-    }
-
     $e1->anyadirTelefonos(691317652);
     $e1->anyadirTelefonos(111222333);
-
-    if (strlen($e1->listarTelefonos()) > 0) {
-        echo "Teléfonos: ".$e1->listarTelefonos();
-    }
+?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>407Persona</title>
+    </head>
+    <body>
+        <?= Empleado::toHtml($e1) ?>
+    </body>
+    </html>
