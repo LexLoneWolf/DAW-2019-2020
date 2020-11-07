@@ -1,7 +1,6 @@
 <?php 
-    
-    
-    class Persona {
+
+    abstract class Persona {
 
         // Atributos
         public const EDAD_MAX = 21;
@@ -37,6 +36,8 @@
         }
 
         // Métodos
+        abstract public function toString();
+
         public function imprimirNombreCompleto(): string {
             $nombreCompleto = $this->nombre . " " . $this->apellidos;
             return $nombreCompleto;
@@ -54,8 +55,6 @@
         }
     }
 
-
-
     class Empleado extends Persona {
 
         // Atributos
@@ -64,14 +63,12 @@
         static $sueldoTope = 3333;
 
         // Constructor
-
         public function __construct(string $nombre, string $apellidos, int $sueldo = 1000) {
             parent::__construct($nombre, $apellidos);
             $this->sueldo = $sueldo;
         }
 
         // Getters y Setters
-
         public function setSueldo(int $sueldo) {
             $this->sueldo=$sueldo;
         }
@@ -136,6 +133,32 @@
                 
             return $empleado;       
         }
+
+        public function toString(): string {
+            $nombre = $this->imprimirNombreCompleto();
+            $edad = $this->getEdad();
+            $sueldo = $this->getSueldo();
+            $impuestos = "";
+            $telefonos = "";
+
+            if (count($this->telefonos) > 0) {
+                $telefonos = "<p>Teléfonos:</p><ol><li>".implode("</li><li>", $this->telefonos)."</li></ol>"; 
+            }
+              
+            if (!$this->debePagarImpuestos()) {
+                $impuestos = "No debe pagar impuestos";
+            } else {
+                $impuestos = "Debe pagar impuestos";
+            }
+            $empleado = "
+                <p>Nombre: $nombre</p>
+                <p>Edad: $edad </p>
+                <p>Sueldo: $sueldo</p>
+                <p> $impuestos</p>
+                $telefonos
+            ";
+            return $empleado;
+        }
     }
 
     $e1 = new Empleado("Alexis", "Coves Berna");
@@ -151,9 +174,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>409PersonaE</title>
+        <title>410PersonaS</title>
     </head>
     <body>
-        <?= Empleado::toHtml($e1) ?>
+        <!-- <?= Empleado::toHtml($e1) ?> -->
+        <?= $e1->toString()?>
     </body>
     </html>

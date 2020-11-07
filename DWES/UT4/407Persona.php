@@ -24,9 +24,12 @@
         public function getApellidos(): string {
             return $this->apellidos;
         }
+        
+        public function imprimirNombreCompleto(): string {
+            $nombreCompleto = $this->nombre . " " . $this->apellidos;
+            return $nombreCompleto;
+        }
     }
-
-
 
     class Empleado extends Persona {
 
@@ -36,14 +39,12 @@
         static $sueldoTope = 3333;
 
         // Constructor
-
         public function __construct(string $nombre, string $apellidos, int $sueldo = 1000) {
             parent::__construct($nombre, $apellidos);
             $this->sueldo = $sueldo;
         }
 
         // Getters y Setters
-
         public function setSueldo(int $sueldo) {
             $this->sueldo=$sueldo;
         }
@@ -61,12 +62,6 @@
         }
 
         // Métodos
-
-        public function imprimirNombreCompleto(): string {
-            $nombreCompleto = $this->nombre . " " . $this->apellidos;
-            return $nombreCompleto;
-        }
-
         public function debePagarImpuestos(): bool {
             $impuestos = false;
 
@@ -95,14 +90,9 @@
             $nombre = $emp->imprimirNombreCompleto();
             $sueldo = $emp->getSueldo();
             $impuestos = "";
-            $telefonos = $emp->listarTelefonos();
-            $telefono = "";
-
-            if (strlen($telefonos) > 0) {
-                for ($i=0; $i < strlen($telefonos); $i+=11) {
-
-                    $telefono .= "<li>".substr($telefonos,$i,9)."</li>"; 
-                }
+            $telefonos = "";
+            if (count($emp->telefonos) > 0) {
+                $telefonos = "<p>Teléfonos:</p><ol><li>".implode("</li><li>", $emp->telefonos)."</li></ol>"; 
             }
 
             if (!$emp->debePagarImpuestos()) {
@@ -112,14 +102,10 @@
             }
 
             $empleado = "
-            <p>Empleado: </p>
             <p>Nombre: $nombre</p>
             <p>Sueldo: $sueldo</p>
             <p>Impuestos: $impuestos</p>
-            <p>Teléfonos:</p>
-            <ol>
-                $telefono
-            <ol>
+            $telefonos
             ";
                 
             return $empleado;       
@@ -130,7 +116,6 @@
 
     $e1->setSueldoTope(3334);
     $e1->setSueldo(3334);
-
     $e1->anyadirTelefonos(691317652);
     $e1->anyadirTelefonos(111222333);
 ?>

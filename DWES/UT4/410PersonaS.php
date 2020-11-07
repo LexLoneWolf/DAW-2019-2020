@@ -3,11 +3,11 @@
     class Persona {
 
         // Atributos
+        public const EDAD_MAX = 21;
         protected $nombre;
         protected $apellidos;
         protected $edad;
-        public const EDAD_MAX = 21;
-
+        
         // Constructor
         public function __construct(string $nombre, string $apellidos) {
             $this->nombre = $nombre;
@@ -63,8 +63,6 @@
         }
     }
 
-
-
     class Empleado extends Persona {
 
         // Atributos
@@ -73,14 +71,12 @@
         static $sueldoTope = 3333;
 
         // Constructor
-
         public function __construct(string $nombre, string $apellidos, int $sueldo = 1000) {
             parent::__construct($nombre, $apellidos);
             $this->sueldo = $sueldo;
         }
 
         // Getters y Setters
-
         public function setSueldo(int $sueldo) {
             $this->sueldo=$sueldo;
         }
@@ -98,12 +94,6 @@
         }
 
         // Métodos
-
-        public function imprimirNombreCompleto(): string {
-            $nombreCompleto = $this->nombre . " " . $this->apellidos;
-            return $nombreCompleto;
-        }
-
         public function debePagarImpuestos(): bool {
             $impuestos = false;
 
@@ -131,14 +121,10 @@
         public static function toHtml(Persona $p): string {
             $sueldo = $p->getSueldo();
             $impuestos = "";
-            $telefonos = $p->listarTelefonos();
-            $telefono = "";
+            $telefonos = "";
 
-            if (strlen($telefonos) > 0) {
-                for ($i=0; $i < strlen($telefonos); $i+=11) {
-
-                    $telefono .= "<li>".substr($telefonos,$i,9)."</li>"; 
-                }
+            if (count($p->telefonos) > 0) {
+                $telefonos = "<p>Teléfonos:</p><ol><li>".implode("</li><li>", $p->telefonos)."</li></ol>";
             }
 
             if (!$p->debePagarImpuestos()) {
@@ -150,10 +136,7 @@
             $empleado = parent::toHtml($p)."
             <p>Sueldo: $sueldo</p>
             <p>Impuestos: $impuestos</p>
-            <p>Teléfonos:</p>
-            <ol>
-                $telefono
-            <ol>
+            $telefonos
             ";
                 
             return $empleado;       
@@ -164,11 +147,10 @@
             $impuestos = "";
             $telefonos = "";
 
-            if (strlen($telefonos) > 0) {
-                $telefonos = "<p>Teléfonos:</p>". implode("</li><li>" $this->telefonos) . "</li></ol>"; 
+            if (count($this->telefonos) > 0) {
+                $telefonos = "<p>Teléfonos:</p><ol><li>".implode("</li><li>", $this->telefonos)."</li></ol>"; 
             }
-            
-            
+              
             if (!$this->debePagarImpuestos()) {
                 $impuestos = "No debe pagar impuestos";
             } else {
@@ -177,7 +159,7 @@
             $empleado = parent::toString()."
                 <p>Sueldo: $sueldo</p>
                 <p> $impuestos</p>
-                <p> $telefonos</p>
+                $telefonos
             ";
             return $empleado;
         }
@@ -199,6 +181,7 @@
         <title>410PersonaS</title>
     </head>
     <body>
-        <?= Empleado::toHtml($e1) ?>
+        <!-- <?= Empleado::toHtml($e1) ?> -->
+        <?= $e1->toString()?>
     </body>
     </html>

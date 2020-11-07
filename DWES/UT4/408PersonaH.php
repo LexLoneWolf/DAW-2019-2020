@@ -49,14 +49,12 @@
         static $sueldoTope = 3333;
 
         // Constructor
-
         public function __construct(string $nombre, string $apellidos, int $sueldo = 1000) {
             parent::__construct($nombre, $apellidos);
             $this->sueldo = $sueldo;
         }
 
         // Getters y Setters
-
         public function setSueldo(int $sueldo) {
             $this->sueldo=$sueldo;
         }
@@ -74,9 +72,6 @@
         }
 
         // Métodos
-
-        
-
         public function debePagarImpuestos(): bool {
             $impuestos = false;
 
@@ -104,14 +99,10 @@
         public static function toHtml(Persona $p): string {
             $sueldo = $p->getSueldo();
             $impuestos = "";
-            $telefonos = $p->listarTelefonos();
-            $telefono = "";
+            $telefonos = "";
 
-            if (strlen($telefonos) > 0) {
-                for ($i=0; $i < strlen($telefonos); $i+=11) {
-
-                    $telefono .= "<li>".substr($telefonos,$i,9)."</li>"; 
-                }
+            if (count($p->telefonos) > 0) {
+                $telefonos = "<p>Teléfonos:</p><ol><li>".implode("</li><li>", $p->telefonos)."</li></ol>";
             }
 
             if (!$p->debePagarImpuestos()) {
@@ -123,10 +114,7 @@
             $empleado = parent::toHtml($p)."
             <p>Sueldo: $sueldo</p>
             <p>Impuestos: $impuestos</p>
-            <p>Teléfonos:</p>
-            <ol>
-                $telefono
-            <ol>
+            $telefonos
             ";
                 
             return $empleado;       
@@ -137,7 +125,6 @@
 
     $e1->setSueldoTope(3334);
     $e1->setSueldo(3334);
-
     $e1->anyadirTelefonos(691317652);
     $e1->anyadirTelefonos(111222333);
 ?>
