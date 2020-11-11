@@ -83,7 +83,7 @@
             $this->telefonos = $listaTelVacia;
         }
 
-        public function imprimirTelefonos(): string {
+        public function telefonosToHtml(): string {
 
             $telefonos = "";
             if (count($this->telefonos) > 0) {
@@ -161,7 +161,7 @@
             <p>Precio por hora: " . $p->getPrecioPorHora() . "</p>
             <p>Sueldo: ". $p->calcularSueldo() . "</p>
             <p>Impuestos: " . $p->impuestos() . "</p>"
-            . $p->imprimirTelefonos()
+            . $p->telefonosToHtml()
             ;
                 
             return $empleado;       
@@ -176,13 +176,14 @@
             <p>Precio por hora: " . $this->getPrecioPorHora() . "</p>
             <p>Sueldo: " . $this->calcularSueldo() . "€</p>
             <p>". $this->impuestos() ."</p>"
-            . $this->imprimirTelefonos()     
+            . $this->telefonosToHtml()     
             ;
             return $empleado;
         }
 
         public function toJSON(): string { 
-            return json_encode($this);
+            $variables = get_object_vars($this);
+            return json_encode($variables);
         }
 
         public function toSerialize(): string {
@@ -223,7 +224,7 @@
             <p>Salario: " . $p->getSalario() . "</p>
             <p>Sueldo: ". $p->calcularSueldo() . "</p>
             <p>Impuestos: " . $p->impuestos() . "</p>"
-            . $p->imprimirTelefonos()
+            . $p->telefonosToHtml()
             ;
                 
             return $empleado;       
@@ -238,13 +239,14 @@
             <p>Salario: " . $this->getSalario() . "</p> 
             <p>Sueldo: " . $this->calcularSueldo() . "€</p>
             <p>". $this->impuestos() ."</p>"
-            . $this->imprimirTelefonos()     
+            . $this->telefonosToHtml()     
             ;
             return $empleado;
         }
 
         public function toJSON(): string { 
-            return json_encode($this);
+            $variables = get_object_vars($this);
+            return json_encode($variables);
         }
 
         public function toSerialize(): string {
@@ -316,7 +318,7 @@
 
                 $empleado .= "
                     <p>Sueldo: " . $trabajador->calcularSueldo() . "</p>"
-                    . $trabajador->imprimirTelefonos()
+                    . $trabajador->telefonosToHtml()
                 ;
 
                 $i++;
@@ -333,7 +335,8 @@
         }
 
         public function toJSON(): string { 
-            return json_encode($this);
+            $variables = get_object_vars($this);
+            return json_encode($variables);
         }
 
         public function toSerialize(): string {
@@ -351,7 +354,7 @@
     $g1->anyadirTelefonos(111222333);
     $g1->anyadirTelefonos(222333444);
 
-    $empresa1 = new Empresa("LoneWolfGames", "Calle bla bla");
+    $empresa1 = new Empresa("Empresa1", "Calle1");
 
     $empresa1->anyadirTrabajador($e1);
     $empresa1->anyadirTrabajador($g1);

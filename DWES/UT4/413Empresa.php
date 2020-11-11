@@ -76,7 +76,7 @@
             $this->telefonos = $listaTelVacia;
         }
 
-        public function imprimirTelefonos(): string {
+        public function telefonosToHtml(): string {
 
             $telefonos = "";
             if (count($this->telefonos) > 0) {
@@ -154,7 +154,7 @@
             <p>Precio por hora: " . $p->getPrecioPorHora() . "</p>
             <p>Sueldo: ". $p->calcularSueldo() . "</p>
             <p>Impuestos: " . $p->impuestos() . "</p>"
-            . $p->imprimirTelefonos()
+            . $p->telefonosToHtml()
             ;
                 
             return $empleado;       
@@ -169,7 +169,7 @@
             <p>Precio por hora: " . $this->getPrecioPorHora() . "</p>
             <p>Sueldo: " . $this->calcularSueldo() . "€</p>
             <p>". $this->impuestos() ."</p>"
-            . $this->imprimirTelefonos()     
+            . $this->telefonosToHtml()     
             ;
             return $empleado;
         }
@@ -208,7 +208,7 @@
             <p>Salario: " . $p->getSalario() . "</p>
             <p>Sueldo: ". $p->calcularSueldo() . "</p>
             <p>Impuestos: " . $p->impuestos() . "</p>"
-            . $p->imprimirTelefonos()
+            . $p->telefonosToHtml()
             ;
                 
             return $empleado;       
@@ -223,7 +223,7 @@
             <p>Salario: " . $this->getSalario() . "</p> 
             <p>Sueldo: " . $this->calcularSueldo() . "€</p>
             <p>". $this->impuestos() ."</p>"
-            . $this->imprimirTelefonos()     
+            . $this->telefonosToHtml()     
             ;
             return $empleado;
         }
@@ -295,7 +295,7 @@
 
                 $empleado .= "
                     <p>Sueldo: " . $trabajador->calcularSueldo() . "</p>"
-                    . $trabajador->imprimirTelefonos()
+                    . $trabajador->telefonosToHtml()
                 ;
 
                 $i++;
