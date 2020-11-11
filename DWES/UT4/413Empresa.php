@@ -44,12 +44,9 @@
         }
 
         public static function toHtml(Persona $p): string {
-            $nombre = $p->imprimirNombreCompleto();
-            
-            $edad = $p->getEdad();
             $empleado = "
-            <p>Nombre: $nombre</p>
-            <p>Edad: $edad</p>
+            <p>Nombre: ". $p->imprimirNombreCompleto() . "</p>
+            <p>Edad: " . $p->getEdad() . "</p>
             ";
             return $empleado;
         }
@@ -98,6 +95,18 @@
             return $impuestos;
         }
 
+        public function impuestos(): string {
+            $impuestos = "";
+
+            if (!$this->debePagarImpuestos()) {
+                $impuestos = "No debe pagar impuestos";
+            } else {
+                $impuestos = "Debe pagar impuestos";
+            }
+
+            return $impuestos;
+        }
+
         abstract public function calcularSueldo(): float;
     }
 
@@ -136,65 +145,32 @@
             return $this->horasTrabajadas * $this->precioPorHora;
         }
 
-        public function impuestos(): string {
-            $impuestos = "";
-
-            if (!$this->debePagarImpuestos()) {
-                $impuestos = "No debe pagar impuestos";
-            } else {
-                $impuestos = "Debe pagar impuestos";
-            }
-
-            return $impuestos;
-        }
-
         public static function toHtml(Persona $p): string {
-            $sueldo = $p->calcularSueldo();
-            $impuestos = "";
-            $telefonos = "";
-
-            if (count($p->telefonos) > 0) {
-                $telefonos = "<p>Teléfonos:</p><ol><li>".implode("</li><li>", $p->telefonos)."</li></ol>";
-            }
-
-            if (!$p->debePagarImpuestos()) {
-                $impuestos = "No debe pagar impuestos";
-            } else {
-                $impuestos = "Debe pagar impuestos";
-            }
-
-            $empleado = "<p>Empleado: </p>".parent::toHtml($p)."
-            <p>Sueldo: $sueldo</p>
-            <p>Impuestos: $impuestos</p>
-            $telefonos
-            ";
+            
+            $empleado = "
+            <p>Puesto: " . get_class($p) . "</p>"
+            . parent::toHtml($p) . "
+            <p>Horas trabajadas: " . $p->getHorasTrabajadas() . "</p>
+            <p>Precio por hora: " . $p->getPrecioPorHora() . "</p>
+            <p>Sueldo: ". $p->calcularSueldo() . "</p>
+            <p>Impuestos: " . $p->impuestos() . "</p>"
+            . $p->imprimirTelefonos()
+            ;
                 
             return $empleado;       
         }
 
         public function toString(): string {
-            $nombre = $this->imprimirNombreCompleto();
-            $edad = $this->getEdad();
-            $sueldo = $this->calcularSueldo();
-            $impuestos = "";
-            $telefonos = "";
-
-            if (count($this->telefonos) > 0) {
-                $telefonos = "<p>Teléfonos:</p><ol><li>".implode("</li><li>", $this->telefonos)."</li></ol>"; 
-            }
-              
-            if (!$this->debePagarImpuestos()) {
-                $impuestos = "No debe pagar impuestos";
-            } else {
-                $impuestos = "Debe pagar impuestos";
-            }
-            $empleado = "<p>Empleado: </p>
-                <p>Nombre: $nombre</p>
-                <p>Edad: $edad </p>
-                <p>Sueldo: $sueldo"."€</p>
-                <p> $impuestos</p>
-                $telefonos
-            ";
+            $empleado = "
+            <p>Puesto: Empleado</p>
+            <p>Nombre: " . $this->imprimirNombreCompleto() . "</p>
+            <p>Edad: " . $this->getEdad() . "</p>
+            <p>Horas trabajadas: " . $this->getHorasTrabajadas() . "</p>
+            <p>Precio por hora: " . $this->getPrecioPorHora() . "</p>
+            <p>Sueldo: " . $this->calcularSueldo() . "€</p>
+            <p>". $this->impuestos() ."</p>"
+            . $this->imprimirTelefonos()     
+            ;
             return $empleado;
         }
     }
@@ -202,53 +178,53 @@
     class Gerente extends Trabajador {
 
         // Atributos
-        protected $sueldo;
+        protected $salario;
 
         // Constructor
-        public function __construct($nombre, $apellidos, $sueldo) {
+        public function __construct($nombre, $apellidos, $salario) {
             parent::__construct($nombre, $apellidos);
-            $this->sueldo = $sueldo;
+            $this->salario = $salario;
         }
         // Getters y Setters
-        public function setSueldo(float $sueldo) {
-            $this->sueldo = $sueldo;
+        public function setSalario(float $salario) {
+            $this->salario = $salario;
         }
 
-        public function getSueldo(): float {
-            return $this->sueldo;
+        public function getSalario(): float {
+            return $this->salario;
         }
 
         // Métodos
         public function calcularSueldo(): float {
-            $sueldo = ($this->sueldo + ($this->sueldo*$this->edad))/100;
-            return $sueldo;
+            $salario = $this->salario + (($this->salario*$this->edad)/100);
+            return $salario;
         }
         
+        public static function toHtml(Persona $p): string {
+            
+            $empleado = "
+            <p>Puesto: " . get_class($p) . "</p>"
+            . parent::toHtml($p) . "
+            <p>Salario: " . $p->getSalario() . "</p>
+            <p>Sueldo: ". $p->calcularSueldo() . "</p>
+            <p>Impuestos: " . $p->impuestos() . "</p>"
+            . $p->imprimirTelefonos()
+            ;
+                
+            return $empleado;       
+        }
 
         public function toString(): string {
-            $nombre = $this->imprimirNombreCompleto();
-            $edad = $this->getEdad();
-            $sueldo = $this->calcularSueldo();
-            $impuestos = "";
-            $telefonos = "";
-
-            if (count($this->telefonos) > 0) {
-                $telefonos = "<p>Teléfonos:</p><ol><li>".implode("</li><li>", $this->telefonos)."</li></ol>"; 
-            }
-              
-            if (!$this->debePagarImpuestos()) {
-                $impuestos = "No debe pagar impuestos";
-            } else {
-                $impuestos = "Debe pagar impuestos";
-            }
+            
             $empleado = "
-                <p>Gerente: </p>
-                <p>Nombre: $nombre</p>
-                <p>Edad: $edad </p>
-                <p>Sueldo: $sueldo"."€</p>
-                <p> $impuestos</p>
-                $telefonos
-            ";
+            <p>Puesto: Gerente</p>
+            <p>Nombre: " . $this->imprimirNombreCompleto() . "</p>
+            <p>Edad: " . $this->getEdad() . "</p>
+            <p>Salario: " . $this->getSalario() . "</p> 
+            <p>Sueldo: " . $this->calcularSueldo() . "€</p>
+            <p>". $this->impuestos() ."</p>"
+            . $this->imprimirTelefonos()     
+            ;
             return $empleado;
         }
     }
@@ -289,48 +265,42 @@
         }
 
         public function listarTrabajadoresHtml(): string {
+            
+            $trabajadores = $this->trabajadores;
             $empleado = "";
-            foreach ($this->trabajadores as $trabajador) {
+            $i = 1;
+            foreach ($trabajadores as $trabajador) {
+
+                $telefonos = 
+                $empleado .= "
+                <p>ID Trabajador $i</p>
+                <p>Nombre:" . $trabajador->imprimirNombreCompleto() . "</p>
+                <p>Edad:" . $trabajador->getEdad() . "</p>
+                <p>" . $trabajador->impuestos() . "</p>
+                <p>Puesto:" . get_class($trabajador) . "</p>
+                ";
                 if ($trabajador instanceof Empleado) {
-                    $empleado = "<p>Empleado</p>";
-                } else {
-                    $nombre = $trabajador->imprimirNombreCompleto();
-                    $edad = $trabajador->getEdad();
-                    $impuestos = $trabajador->impuestos();
-                    $sueldo = $trabajador->calcularSueldo();
-                    $telefonos = $trabajador->imprimirTelefonos();
-                    $horasTrabajadas = $trabajador->getHorasTrabajadas();
-                    $precioPorHora = $trabajador->getPrecioPorHora();
-                    $empleado = "
-                    <p>Gerente: </p>
-                    <p>$nombre</p>
-                    <p>$edad</p>
-                    <p>$impuestos</p>
-                    <p>$horasTrabajadas</p>
-                    <p>$precioPorHora</p>
-                    <p>$sueldo</p>
-                    $telefonos
+
+                    $empleado .= "
+                    <p>Horas trabajadas: " . $trabajador->getHorasTrabajadas() . "</p>
+                    <p>Precio por hora: " . $trabajador->getPrecioPorHora() . "</p>
                     ";
                 }
 
-                $nombre = $trabajador->imprimirNombreCompleto();
-                    $edad = $trabajador->getEdad();
-                    $impuestos = $trabajador->impuestos();
-                    $sueldo = $trabajador->calcularSueldo();
-                    $telefonos = $trabajador->imprimirTelefonos();
-                    $horasTrabajadas = $trabajador->getHorasTrabajadas();
-                    $precioPorHora = $trabajador->getPrecioPorHora();
-                    $empleado = "
-                    <p>Gerente: </p>
-                    <p>$nombre</p>
-                    <p>$edad</p>
-                    <p>$impuestos</p>
-                    <p>$horasTrabajadas</p>
-                    <p>$precioPorHora</p>
-                    <p>$sueldo</p>
-                    $telefonos
-                    ";
+                if ($trabajador instanceof Gerente) {
+                   $empleado .= "
+                   <p>Salario: " . $trabajador->getSalario() . "</p>
+                   ";
+                }
+
+                $empleado .= "
+                    <p>Sueldo: " . $trabajador->calcularSueldo() . "</p>"
+                    . $trabajador->imprimirTelefonos()
+                ;
+
+                $i++;
             }
+            return $empleado;
         }
 
         public function getCosteNominas(): float {
@@ -338,9 +308,8 @@
             foreach ($this->trabajadores as $trabajador) {
                 $totalNominas+= $trabajador->calcularSueldo();
             }
+            return $totalNominas;
         }
-
-
     }
 
     $e1 = new Empleado("Alexis", "Coves Berna", 200, 12);
@@ -366,9 +335,7 @@
         <title>410PersonaS</title>
     </head>
     <body>
-        <!-- <?= Empleado::toHtml($e1) ?> -->
-        <?= $e1->toString()?>
-        <?= $g1->toString() ?>
         <?= $empresa1->listarTrabajadoresHtml() ?>
+        <p>Coste Total de nóminas: <?= $empresa1->getCosteNominas() ?></p>
     </body>
     </html>
