@@ -140,37 +140,66 @@
 // console.log(" ");
 // console.log(" ");
 
-function mostrar(array) {
-    console.log("El tamaño del array es:" + array.length);
-    for (let numero of array) {
-        console.log(numero);
+// function mostrar(array) {
+//     console.log("El tamaño del array es:" + array.length);
+//     for (let numero of array) {
+//         console.log(numero);
+//     }
+// }
+
+// let numeros = [];
+// let mayor = 0;
+// let pos = 0;
+// for (let i = 0; i < 20; i++) {
+//     numeros[i] = Math.floor(Math.random() * 100)+1;
+//     if (mayor < numeros[i]) {
+//         mayor = numeros[i];
+//         pos = i;
+//     }
+// }
+
+// for (let i = 0; i < numeros.length; i++) {
+//     console.log(numeros[i]);
+// }
+
+
+// mayor = -1;
+// pos = -1;
+
+// for (let i in numeros) {
+//     [mayor,pos]=numeros[i]>mayor?[numeros[i],i]:[mayor,pos];
+// }
+
+// console.log("El mayor número es "+ mayor + " en la posición " + pos);
+let arrayNum = new Array(0);
+let n = parseInt(prompt("Introduce un número"));
+do {
+    if (arrayNum.length == 0) {
+        arrayNum[0] = n;
+    } else {
+        let aux = new Array(arrayNum.length+1);
+        let insertado = false;
+        for (let i = 0; i < arrayNum.length; i++) {
+            if (insertado) {
+                aux[i+1] = arrayNum[i];
+            } else {
+                if (n < arrayNum[i]) {
+                    aux[i] = n;
+                    aux[i+1] = arrayNum[i];
+                    insertado = true;
+                } else {
+                    aux[i]= arrayNum[i];
+                }
+            }
+        }
+
+        arrayNum = aux;
+
     }
-}
 
-let numeros = [];
-let mayor = 0;
-let pos = 0;
-for (let i = 0; i < 20; i++) {
-    numeros[i] = Math.floor(Math.random() * 100)+1;
-    if (mayor < numeros[i]) {
-        mayor = numeros[i];
-        pos = i;
-    }
-}
-
-for (let i = 0; i < numeros.length; i++) {
-    console.log(numeros[i]);
-}
-
-
-mayor = -1;
-pos = -1;
-
-for (let i in numeros) {
-    [mayor,pos]=numeros[i]>mayor?[numeros[i],i]:[mayor,pos];
-}
-
-console.log("El mayor número es "+ mayor + " en la posición " + pos);
+    n = parseInt(prompt("Introduce un número"));
+    
+} while (n != -1);
 
 
 

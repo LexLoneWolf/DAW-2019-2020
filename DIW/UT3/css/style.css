@@ -9,7 +9,6 @@ body {
 h1{
     font-size: 40px;
     color: cadetblue;
-    text-align: right;
 }
 
 h2 {
@@ -35,5 +34,17 @@ select {
 
 option[selected] {
     color: red
+}
+
+a[href $=".es"] {
+    color: turquoise;
+}
+
+a[href $=".com"] {
+    color: violet;
+}
+
+div  h2 {
+    color: yellowgreen;
 }
 
