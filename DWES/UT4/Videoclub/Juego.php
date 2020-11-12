@@ -18,9 +18,13 @@
 
         //Métodos
         public function muestraJugadoresPosibles(): void {
-            if ($minNumJugadores == 1 && $maxNumJugadores == 1) {
-                echo "Para un jugador";
-            } else if ()
+            if ($this->minNumJugadores == 1 && $this->maxNumJugadores == 1) {
+                echo "<br />Para un jugador";
+            } else if ($this->minNumJugadores == $this->maxNumJugadores) {
+                echo "<br />Para " . $this->minNumJugadores . " jugadores";
+            } else {
+                echo "<br />De " . $this->minNumJugadores . " a " . $this->maxNumJugadores;
+            }
         }
 
         public function muestraResumen(): void {
