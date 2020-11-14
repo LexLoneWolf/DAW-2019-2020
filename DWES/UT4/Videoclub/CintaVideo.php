@@ -1,6 +1,5 @@
 <?php 
 
-    include("Soporte.php");
 
     class CintaVideo extends Soporte {
         //Atributos
@@ -12,8 +11,9 @@
             $this->duracion = $duracion;
         }
 
+        //Métodos
         public function muestraResumen(): void {
-            echo "Pelicula en VHS:";
+            echo "<br />Pelicula en VHS:";
             parent::muestraResumen();
             echo "<br />Duración: " . $this->duracion . " minutos";
         }

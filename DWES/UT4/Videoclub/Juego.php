@@ -1,6 +1,5 @@
 <?php 
 
-    include("Soporte.php");
 
     class Juego extends Soporte {
         //Atributos
@@ -28,7 +27,7 @@
         }
 
         public function muestraResumen(): void {
-            echo "<br>Juego para: " . $this->consola;
+            echo "<br />Juego para: " . $this->consola;
             parent::muestraResumen();
             echo $this->muestraJugadoresPosibles();
         }

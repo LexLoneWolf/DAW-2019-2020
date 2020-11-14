@@ -1,29 +1,88 @@
 <?php 
 
-    // include "Soporte.php";
-    // $soporte1 = new Soporte("Tenet", 22, 3);
-    // echo "<strong>" . $soporte1->titulo . "</strong>";
-    // echo "<br>Precio: " . $soporte1->getPrecio() . " euros";
-    // echo "<br>Precio IVA incluido: " . $soporte1->getPrecioConIVA() . " euros";
-    // $soporte1->muestraResumen();
+    include_once("Cliente.php");
+    include_once("Soporte.php");
+    include_once("Juego.php");
+    include_once("Dvd.php");
+    include_once("CintaVideo.php");
 
-    // include "CintaVideo.php";
-    // $miCinta = new CintaVideo("Los cazafantasmas", 23, 3.5, 107);
-    // echo "<strong>" . $miCinta->titulo . "</strong>";
-    // echo "<br>Precio: " . $miCinta->getPrecio() . " euros";
-    // echo "<br>Precio IVA incluido: " . $miCinta->getPrecioConIva() . " euros";
-    // $miCinta->muestraResumen();
+    class VideoClub {
+        //Atributos
+        private $nombre;
+        private $productos = [];
+        private $numProductos = -1;
+        private $socios = [];
+        private $numSocios = -1;
 
-    // include "Dvd.php";
-    // $miDvd = new Dvd("Origen", 24, 15, "es,en,fr", "16:9");
-    // echo "<strong>" . $miDvd->titulo . "</strong>";
-    // echo "<br>Precio: " . $miDvd->getPrecio() . " euros";
-    // echo "<br>Precio IVA incluido: " . $miDvd->getPrecioConIva() . " euros";
-    // $miDvd->muestraResumen();
+        //Constructor
+        public function __construct(string $nombre) {
+            $this->nombre = $nombre;
+        }
 
-    include "Juego.php";
-    $miJuego = new Juego("The Last of Us Part II", 26, 49.99, "PS4", 1, 1);
-    echo "<strong>" . $miJuego->titulo . "</strong>";
-    echo "<br>Precio: " . $miJuego->getPrecio() . " euros";
-    echo "<br>Precio IVA incluido: " . $miJuego->getPrecioConIva() . " euros";
-    $miJuego->muestraResumen();
+        //Métodos
+        private function incluirProducto(Soporte $s) {
+            $this->productos[] = $s;
+        }
+
+        public function incluirCintaVideo(string $titulo, float $precio, int $duracion) {
+            $this->numProductos++;
+            $cinta = new CintaVideo($titulo, $this->numProductos, $precio, $duracion);
+            $this->incluirProducto($cinta);
+            echo "Incluido soporte " . $this->numProductos . "<br />";
+        }
+
+        public function incluirDvd(string $titulo, float $precio, string $idiomas, string $formatoPantalla) {
+            $this->numProductos++;
+            $dvd = new Dvd($titulo, $this->numProductos, $precio, $idiomas, $formatoPantalla);
+            $this->incluirProducto($dvd);
+            echo "Incluido soporte " . $this->numProductos . "<br />";
+        }
+
+        public function incluirJuego(string $titulo, float $precio, string $consola, int $minJ, int $maxJ) {
+            $this->numProductos++;
+            $juego = new Juego($titulo, $this->numProductos , $precio, $consola, $minJ, $maxJ); 
+            $this->incluirProducto($juego);
+            echo "Incluido soporte " . $this->numProductos . "<br />";
+        }
+
+        public function incluirSocio(string $nombre, int $maxAlquileresConcurrentes = 3) {
+            $this->numSocios++;
+            $socio = new Cliente($nombre, $this->numSocios, $maxAlquileresConcurrentes);
+            $this->socios[] = $socio;
+            echo "<br />Incluido socio " . $this->numSocios;
+        }
+
+        public function listarProductos(): void {
+            $numProductos = $this->numProductos+1;
+            echo "<br />Listado de los " . $numProductos . " productos disponibles";
+            foreach ($this->productos as $producto) {
+                echo "<br />" . ($producto->getNumero()+1) . ".-<br />";
+                $producto->muestraResumen();
+            }
+        }
+
+        public function listarSocios(): void {
+            $numSocios = $this->numSocios+1;
+            echo "<br />Listado de " . $numSocios . " socios del videoclub:";
+            $i = 1;
+            foreach ($this->socios as $socio) {
+                
+                echo "<br />$i.-<br />";
+                echo "<br /><strong>Cliente " . $socio->getNumero() . ":</strong> ";
+                $socio->muestraResumen();
+                $i++;
+            }
+        }
+
+        public function alquilaSocioProducto(int $numSocio, int $numProducto) {
+            foreach ($this->productos as $producto) {
+                if ($producto->getNumero() == $numProducto) {
+                    foreach ($this->socios as $socio) {
+                        if ($socio->getNumero() == $numSocio) {
+                            $socio->alquilar($producto);
+                        }
+                    }
+                }
+            }    
+        }
+    }

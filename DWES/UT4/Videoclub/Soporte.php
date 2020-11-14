@@ -27,10 +27,9 @@
             return $this->numero;
         }
 
+        //Métodos
         public function muestraResumen(): void {
             echo "<br /> $this->titulo <br />" .
             $this->getPrecio() . " (IVA no incluido)";
         }
-
-
     }

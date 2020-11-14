@@ -1,7 +1,5 @@
 <?php 
 
-    include("Soporte.php");
-
     class Dvd extends Soporte {
         //Atributos
         public $idiomas;
@@ -22,7 +20,3 @@
             Formato: " . $this->formatPantalla;
         }
     }
-
-
-
-?>
