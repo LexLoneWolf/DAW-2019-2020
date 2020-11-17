@@ -46,7 +46,7 @@
             $this->numSocios++;
             $socio = new Cliente($nombre, $this->numSocios, $maxAlquileresConcurrentes);
             $this->socios[] = $socio;
-            echo "<br />Incluido socio " . $this->numSocios;
+            echo "<br />Incluido socio " . ($this->numSocios-1);
         }
 
         public function listarProductos(): void {
