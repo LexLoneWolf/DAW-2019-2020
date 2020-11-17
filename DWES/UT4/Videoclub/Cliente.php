@@ -48,6 +48,7 @@
                 $alquila = false;
             } else if ($this->numSoportesAlquilados >= $this->maxAlquilerConcurrente) {
                 echo "<br />Este cliente tiene " . $this->maxAlquilerConcurrente . " elementos alquilados. No puede alquilar más en este videoclub hasta que no devuelva algo<br />";
+                $alquila = false;
             } else {
                 $this->numSoportesAlquilados++;
                 $this->soportesAlquilados[] = $s;

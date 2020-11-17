@@ -43,8 +43,8 @@
         }
 
         public function incluirSocio(string $nombre, int $maxAlquileresConcurrentes = 3) {
-            $this->numSocios++;
             $socio = new Cliente($nombre, $this->numSocios, $maxAlquileresConcurrentes);
+            $this->numSocios++;
             $this->socios[] = $socio;
             echo "<br />Incluido socio " . ($this->numSocios-1);
         }
@@ -68,10 +68,12 @@
             }
         }
 
-        public function alquilaSocioProducto(int $numSocio, int $numProducto) {
-            foreach ($this->productos as $producto) {
+        public function alquilarSocioProducto(int $numSocio, int $numProducto) {
+            $socios = $this->socios;
+            $productos = $this->productos;
+            foreach ($productos as $producto) {
                 if ($producto->getNumero() == $numProducto) {
-                    foreach ($this->socios as $socio) {
+                    foreach ($socios as $socio) {
                         if ($socio->getNumero() == $numSocio) {
                             $socio->alquilar($producto);
                         }
