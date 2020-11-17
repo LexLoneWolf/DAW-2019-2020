@@ -62,8 +62,8 @@
             $numSocios = $this->numSocios;
             echo "<br />Listado de " . $numSocios . " socios del videoclub:";
             foreach ($this->socios as $socio) {
-                echo "<br />" .$socio->getNumero() . "-<br />";
-                echo "<br /><strong>Cliente " . ($socio->getNumero()-1) . ":</strong> ";
+                echo "<br />" . ($socio->getNumero()+1) . "-<br />";
+                echo "<br /><strong>Cliente " . $socio->getNumero() . ":</strong> ";
                 $socio->muestraResumen();
             }
         }
