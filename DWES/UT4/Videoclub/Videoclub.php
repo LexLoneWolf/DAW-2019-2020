@@ -10,9 +10,9 @@
         //Atributos
         private $nombre;
         private $productos = [];
-        private $numProductos = -1;
+        private $numProductos = 0;
         private $socios = [];
-        private $numSocios = -1;
+        private $numSocios = 0;
 
         //Constructor
         public function __construct(string $nombre) {
@@ -22,27 +22,24 @@
         //Métodos
         private function incluirProducto(Soporte $s) {
             $this->productos[] = $s;
+            $this->numProductos++;
+            echo "Incluido soporte " . $s->getNumero() . "<br />";
         }
 
         public function incluirCintaVideo(string $titulo, float $precio, int $duracion) {
-            $this->numProductos++;
             $cinta = new CintaVideo($titulo, $this->numProductos, $precio, $duracion);
             $this->incluirProducto($cinta);
-            echo "Incluido soporte " . $this->numProductos . "<br />";
+            
         }
 
         public function incluirDvd(string $titulo, float $precio, string $idiomas, string $formatoPantalla) {
-            $this->numProductos++;
             $dvd = new Dvd($titulo, $this->numProductos, $precio, $idiomas, $formatoPantalla);
             $this->incluirProducto($dvd);
-            echo "Incluido soporte " . $this->numProductos . "<br />";
         }
 
         public function incluirJuego(string $titulo, float $precio, string $consola, int $minJ, int $maxJ) {
-            $this->numProductos++;
             $juego = new Juego($titulo, $this->numProductos , $precio, $consola, $minJ, $maxJ); 
             $this->incluirProducto($juego);
-            echo "Incluido soporte " . $this->numProductos . "<br />";
         }
 
         public function incluirSocio(string $nombre, int $maxAlquileresConcurrentes = 3) {
@@ -53,7 +50,7 @@
         }
 
         public function listarProductos(): void {
-            $numProductos = $this->numProductos+1;
+            $numProductos = $this->numProductos;
             echo "<br />Listado de los " . $numProductos . " productos disponibles";
             foreach ($this->productos as $producto) {
                 echo "<br />" . ($producto->getNumero()+1) . ".-<br />";
@@ -62,15 +59,12 @@
         }
 
         public function listarSocios(): void {
-            $numSocios = $this->numSocios+1;
+            $numSocios = $this->numSocios;
             echo "<br />Listado de " . $numSocios . " socios del videoclub:";
-            $i = 1;
             foreach ($this->socios as $socio) {
-                
-                echo "<br />$i.-<br />";
-                echo "<br /><strong>Cliente " . $socio->getNumero() . ":</strong> ";
+                echo "<br />" .$socio->getNumero() . "-<br />";
+                echo "<br /><strong>Cliente " . ($socio->getNumero()-1) . ":</strong> ";
                 $socio->muestraResumen();
-                $i++;
             }
         }
 
