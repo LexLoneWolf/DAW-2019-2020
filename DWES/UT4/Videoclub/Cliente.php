@@ -32,13 +32,11 @@
 
         public function tieneAlquilado(Soporte $s): bool {
             $alquilado = false;
-
-            foreach ($this->soportesAlquilados as $soporte) {
-                if ($s->getNumero() == $soporte->getNumero()) {
-                   $alquilado = true; 
-                   echo "<br />El cliente ya tiene alquilado el soporte: <strong>" . $s->titulo . "</strong><br />";
-                }
+            if (in_array($s, $this->soportesAlquilados)) {
+                $alquilado = true;
+                echo "<br />El cliente ya tiene alquilado el soporte: <strong>" . $s->titulo . "</strong><br />";
             }
+            
             return $alquilado;
         }
 
@@ -60,7 +58,8 @@
 
         public function devolver(int $numSoporte): bool {
             $devuelve = false;
-            foreach ($this->soportesAlquilados as $soporte) {
+            $soportesAlquilados = $this->soportesAlquilados;
+            foreach ($soportesAlquilados as $soporte) {
                 if ($soporte->getNumero() == $numSoporte) {
                     $devuelve = true;
                     $this->numSoporteAlquilados--;
