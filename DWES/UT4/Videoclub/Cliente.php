@@ -28,7 +28,6 @@
         public function muestraResumen(): void {
             echo $this->nombre . "<br />
             Alquileres actuales: " . $this->numSoportesAlquilados;
-            ;
         }
 
         public function tieneAlquilado(Soporte $s): bool {
