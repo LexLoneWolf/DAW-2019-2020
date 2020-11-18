@@ -73,18 +73,12 @@
             }
         }
 
-        public function alquilarSocioProducto(int $numSocio, int $numProducto) {
-            $socios = $this->socios;
-            $productos = $this->productos;
-            foreach ($productos as $producto) {
-                if ($producto->getNumero() == $numProducto) {
-                    foreach ($socios as $socio) {
-                        if ($socio->getNumero() == $numSocio) {
-                            $socio->alquilar($producto);
-                        }
-                    }
+        public function alquilarSocioProducto(int $numSocio, int $numProducto) {     
+            if ($numSocio >= 0 && $numSocio <= count($this->socios)) {
+                if ($numProducto >= 0 && $numProducto <= count($this->productos)) {
+                    $this->socios[$numSocio]->alquilar($this->productos[$numProducto]);
                 }
-            }    
+            }
         }
 
         public function muestraResumen(): void {
