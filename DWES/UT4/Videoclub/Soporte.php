@@ -1,6 +1,8 @@
 <?php 
 
-    class Soporte {
+    include_once("Resumible.php");
+
+    abstract class Soporte implements Resumible {
         // Atributos
         public const IVA = 1.16;
         public $titulo;

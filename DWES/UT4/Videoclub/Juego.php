@@ -1,7 +1,8 @@
 <?php 
 
+    include_once("Resumible.php");
 
-    class Juego extends Soporte {
+    class Juego extends Soporte implements Resumible {
         //Atributos
         public $consola;
         private $minNumJugadores;

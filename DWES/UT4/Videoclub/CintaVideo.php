@@ -1,7 +1,8 @@
 <?php 
 
+    include_once("Resumible");
 
-    class CintaVideo extends Soporte {
+    class CintaVideo extends Soporte implements Resumible {
         //Atributos
         private $duracion;
 

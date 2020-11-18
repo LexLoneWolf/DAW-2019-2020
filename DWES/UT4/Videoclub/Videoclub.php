@@ -5,18 +5,23 @@
     include_once("Juego.php");
     include_once("Dvd.php");
     include_once("CintaVideo.php");
+    include_once("Resumible");
 
-    class VideoClub {
+    class VideoClub implements Resumible {
         //Atributos
-        private $nombre;
-        private $productos = [];
-        private $numProductos = 0;
-        private $socios = [];
-        private $numSocios = 0;
+        private string $nombre;
+        private array $productos;
+        private int $numProductos;
+        private array $socios;
+        private int $numSocios;
 
         //Constructor
         public function __construct(string $nombre) {
             $this->nombre = $nombre;
+            $this->productos = [];
+            $this->numProductos = 0;
+            $this->socios = [];
+            $this->numSocios = 0;
         }
 
         //Métodos
@@ -80,5 +85,9 @@
                     }
                 }
             }    
+        }
+
+        public function muestraResumen(): void {
+
         }
     }

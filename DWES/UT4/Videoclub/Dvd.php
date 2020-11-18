@@ -1,6 +1,8 @@
 <?php 
 
-    class Dvd extends Soporte {
+    include_once("Resumible.php");
+
+    class Dvd extends Soporte implements Resumible {
         //Atributos
         public $idiomas;
         private $formatPantalla;

@@ -1,6 +1,8 @@
 <?php 
 
-    class Cliente {
+    include_once("Resumible.php");
+
+    class Cliente implements Resumible {
         //Atributos
         public $nombre;
         private $numero = 0;
