@@ -82,6 +82,8 @@
         }
 
         public function muestraResumen(): void {
-
+            echo "<br />Videoclub: " . $this->nombre . "<br />" .
+            "Productos: " . $this->numProductos . "<br />" .
+            "Socios: " . $this->numSocios;
         }
     }

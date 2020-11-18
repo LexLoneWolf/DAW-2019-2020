@@ -90,3 +90,5 @@
     $vc->alquilarSocioProducto(1,6);
     // listo los socios
     $vc->listarSocios();
+    echo "<br />";
+    $vc->muestraResumen();

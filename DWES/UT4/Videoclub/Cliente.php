@@ -1,7 +1,5 @@
 <?php 
 
-    include_once("Resumible.php");
-
     class Cliente implements Resumible {
         //Atributos
         public $nombre;
@@ -35,16 +33,15 @@
         public function tieneAlquilado(Soporte $s): bool {
             $alquilado = false;
             if (in_array($s, $this->soportesAlquilados)) {
-                $alquilado = true;
-                echo "<br />El cliente ya tiene alquilado el soporte: <strong>" . $s->titulo . "</strong><br />";
+                $alquilado = true;    
             }
-            
             return $alquilado;
         }
 
         public function alquilar(Soporte $s): bool {
             $alquila = true;
             if ($this->tieneAlquilado($s)) {
+                echo "<br />El cliente ya tiene alquilado el soporte: <strong>" . $s->titulo . "</strong><br />";
                 $alquila = false;
             } else if ($this->numSoportesAlquilados >= $this->maxAlquilerConcurrente) {
                 echo "<br />Este cliente tiene " . $this->maxAlquilerConcurrente . " elementos alquilados. No puede alquilar más en este videoclub hasta que no devuelva algo<br />";
@@ -61,22 +58,20 @@
         public function devolver(int $numSoporte): bool {
             $devuelve = false;
             $soportesAlquilados = $this->soportesAlquilados;
-            foreach ($soportesAlquilados as $soporte) {
-                if ($soporte->getNumero() == $numSoporte) {
+            
+            if ($soportesAlquilados > 0) {
+                if ($this->tieneAlquilado($soportesAlquilados[$numSoporte])) {
                     $devuelve = true;
                     $this->numSoporteAlquilados--;
                     echo "Soporte devuelto correctamente";
                 }
-            }
-
-            if (!$devuelve) {
+            } else {
                 if ($this->numSoportesAlquilados == 0) {
                     echo "<br />Este cliente no tiene alquilado ningún elemento";
                 } else {
                     echo "<br />No se ha podido encontrar el soporte en los alquileres de este cliente<br />";
                 }  
             }
-
             return $devuelve;
         }
 
