@@ -1,5 +1,6 @@
 <?php 
 
+    include("Resumible.php");
     class Cliente implements Resumible {
         //Atributos
         public $nombre;

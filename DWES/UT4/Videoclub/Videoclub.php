@@ -5,7 +5,7 @@
     include_once("Juego.php");
     include_once("Dvd.php");
     include_once("CintaVideo.php");
-    include_once("Resumible");
+    //include_once("Resumible");
 
     class VideoClub implements Resumible {
         //Atributos
