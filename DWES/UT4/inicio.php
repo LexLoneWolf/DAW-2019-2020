@@ -1,21 +1,14 @@
 <?php
 
-    include_once("C:/xampp/htdocs/DAW-2019-2020/DWES/UT4/Dwes/Videoclub/Videoclub.php");
-    include_once("C:/xampp/htdocs/DAW-2019-2020/DWES/UT4/Dwes/Videoclub/Cliente.php");
-    include_once("C:/xampp/htdocs/DAW-2019-2020/DWES/UT4/Dwes/Videoclub/Soporte.php");
-    include_once("C:/xampp/htdocs/DAW-2019-2020/DWES/UT4/Dwes/Videoclub/Juego.php");
-    include_once("C:/xampp/htdocs/DAW-2019-2020/DWES/UT4/Dwes/Videoclub/Dvd.php");
-    include_once("C:/xampp/htdocs/DAW-2019-2020/DWES/UT4/Dwes/Videoclub/CintaVideo.php");
-    include_once("C:/xampp/htdocs/DAW-2019-2020/DWES/UT4/Dwes/Videoclub/Resumible.php");
-
-    use Dwes\Videoclub\Videoclub;
-    use Dwes\Videoclub\Cliente;
-    use Dwes\Videoclub\Soporte;
-    use Dwes\Videoclub\Juego;
-    use Dwes\Videoclub\Dvd;
-    use Dwes\Videoclub\CintaVideo;
-    use Dwes\Videoclub\Resumible;
-
+    include_once("autoload.php");
+    
+    use app\Dwes\Videoclub\Model\Videoclub;
+    use app\Dwes\Videoclub\Model\Cliente;
+    use app\Dwes\Videoclub\Model\Soporte;
+    use app\Dwes\Videoclub\Model\Juego;
+    use app\Dwes\Videoclub\Model\Dvd;
+    use app\Dwes\Videoclub\Model\CintaVideo;
+    
     $vc = Videoclub::getInstance();
     $vc->init("Video Gaga");
     //voy a incluir unos cuantos soportes de prueba
@@ -30,7 +23,6 @@
     $vc->listarProductos();
     echo "<br />";
     
-
     $vc2 = Videoclub::getInstance();
     $vc2->incluirSocio("Amancio Ortega");
     $vc2->incluirSocio("Pablo Picasso",2);
@@ -46,6 +38,4 @@
     $vc2->listarSocios();
     echo "<br />";
     $vc2->muestraResumen();
-    // Alquilo los soportes 0 y 1 al socio 0 encadenando métodos.
     
-    $vc2->muestraResumen();

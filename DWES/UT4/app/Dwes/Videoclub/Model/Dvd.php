@@ -1,6 +1,6 @@
 <?php 
 
-    namespace Dwes\Videoclub;
+    namespace app\Dwes\Videoclub\Model;
     
     class Dvd extends Soporte implements Resumible {
         //Atributos

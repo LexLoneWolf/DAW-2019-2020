@@ -1,6 +1,6 @@
 <?php 
 
-    namespace Dwes\Videoclub;
+    namespace app\Dwes\Videoclub\Model;
 
     abstract class Soporte implements Resumible {
         // Atributos

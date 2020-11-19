@@ -1,10 +1,11 @@
 <?php 
-    namespace Dwes\Videoclub;
-    include_once("C:/xampp/htdocs/DAW-2019-2020/DWES/UT4/Dwes/Videoclub/Singleton.php");
+    namespace app\Dwes\Videoclub\Model;
+    include_once("app/Dwes/Videoclub/Util/Singleton.php");
+    include_once("app/Dwes/Videoclub/Model/Resumible.php");
 
     class VideoClub implements Resumible {
         //Atributos
-        use \Dwes\Videoclub\Singleton;
+        use \app\Dwes\Videoclub\Util\Singleton;
         private string $nombre;
         private array $productos;
         private int $numProductos;
