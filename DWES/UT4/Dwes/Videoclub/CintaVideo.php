@@ -1,5 +1,7 @@
 <?php 
 
+    namespace Dwes\Videoclub;
+    
     class CintaVideo extends Soporte implements Resumible {
         //Atributos
         private $duracion;

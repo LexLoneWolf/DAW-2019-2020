@@ -1,5 +1,7 @@
 <?php 
 
+    namespace Dwes\Videoclub;
+
     abstract class Soporte implements Resumible {
         // Atributos
         public const IVA = 1.16;

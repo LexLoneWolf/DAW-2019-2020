@@ -1,14 +1,10 @@
 <?php 
-
-    include_once("Cliente.php");
-    include_once("Soporte.php");
-    include_once("Juego.php");
-    include_once("Dvd.php");
-    include_once("CintaVideo.php");
-    //include_once("Resumible");
+    namespace Dwes\Videoclub;
+    include_once("C:/xampp/htdocs/DAW-2019-2020/DWES/UT4/Dwes/Videoclub/Singleton.php");
 
     class VideoClub implements Resumible {
         //Atributos
+        use \Dwes\Videoclub\Singleton;
         private string $nombre;
         private array $productos;
         private int $numProductos;
@@ -16,12 +12,13 @@
         private int $numSocios;
 
         //Constructor
-        public function __construct(string $nombre) {
+        public function init(string $nombre): Videoclub {
             $this->nombre = $nombre;
             $this->productos = [];
             $this->numProductos = 0;
             $this->socios = [];
             $this->numSocios = 0;
+            return $this;
         }
 
         //Métodos
@@ -34,7 +31,6 @@
         public function incluirCintaVideo(string $titulo, float $precio, int $duracion) {
             $cinta = new CintaVideo($titulo, $this->numProductos, $precio, $duracion);
             $this->incluirProducto($cinta);
-            
         }
 
         public function incluirDvd(string $titulo, float $precio, string $idiomas, string $formatoPantalla) {
@@ -43,7 +39,7 @@
         }
 
         public function incluirJuego(string $titulo, float $precio, string $consola, int $minJ, int $maxJ) {
-            $juego = new Juego($titulo, $this->numProductos , $precio, $consola, $minJ, $maxJ); 
+            $juego = new Juego($titulo, $this->numProductos, $precio, $consola, $minJ, $maxJ); 
             $this->incluirProducto($juego);
         }
 
@@ -73,12 +69,13 @@
             }
         }
 
-        public function alquilarSocioProducto(int $numSocio, int $numProducto) {     
+        public function alquilarSocioProducto(int $numSocio, int $numProducto): Videoclub {     
             if ($numSocio >= 0 && $numSocio <= count($this->socios)) {
                 if ($numProducto >= 0 && $numProducto <= count($this->productos)) {
                     $this->socios[$numSocio]->alquilar($this->productos[$numProducto]);
                 }
             }
+            return $this;
         }
 
         public function muestraResumen(): void {

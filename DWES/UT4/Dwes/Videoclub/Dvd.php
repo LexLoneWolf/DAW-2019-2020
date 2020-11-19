@@ -1,5 +1,7 @@
 <?php 
 
+    namespace Dwes\Videoclub;
+    
     class Dvd extends Soporte implements Resumible {
         //Atributos
         public $idiomas;
