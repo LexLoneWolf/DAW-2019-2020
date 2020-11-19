@@ -171,35 +171,89 @@
 // }
 
 // console.log("El mayor número es "+ mayor + " en la posición " + pos);
-let arrayNum = new Array(0);
-let n = parseInt(prompt("Introduce un número"));
-do {
-    if (arrayNum.length == 0) {
-        arrayNum[0] = n;
-    } else {
-        let aux = new Array(arrayNum.length+1);
-        let insertado = false;
-        for (let i = 0; i < arrayNum.length; i++) {
-            if (insertado) {
-                aux[i+1] = arrayNum[i];
-            } else {
-                if (n < arrayNum[i]) {
-                    aux[i] = n;
-                    aux[i+1] = arrayNum[i];
-                    insertado = true;
-                } else {
-                    aux[i]= arrayNum[i];
-                }
-            }
-        }
 
-        arrayNum = aux;
 
+// let array = [1,2,3];
+// let array2 = ["a", "b", "c"];
+
+// console.log(array);
+
+// array.push(4);
+
+// console.log(array);
+
+// array.unshift(0);
+
+// console.log(array);
+
+// array.pop(4);
+
+// array.shift(0);
+
+// console.log(array.concat(array2));
+
+// console.log(array.slice(1));
+
+// console.log(array.splice(3,1));
+
+function comparar(a, b) {
+    if (a < b) {
+        return -1;
     }
 
-    n = parseInt(prompt("Introduce un número"));
-    
-} while (n != -1);
+    if (a > b) {
+        return 1;
+    }
+
+    return 0;
+}
+
+let personas = [
+    ["Jose", 47, "Profesor"],
+    ["Ana", 20, "Estudiante"],
+    ["Pepe", 32, "Administrador"],
+    ["Francisco", 25, "Estudiante"],
+    ["Sebastian", 50, "Profesor"],
+    ["Carlos", 35, "Estudiante"]   
+];
+
+function compararPorEdad(a,b) {
+    if (a[1] < b[1]) {
+        return -1;
+    }
+
+    if (a[1] > b[1]) {
+        return 1;
+    }
+
+    return 0;
+}
+
+function comparar(a,b) {
+    if (a[2] == "Administrador" && (b[2] != a[2])) {
+        return -1;
+    }
+    if (a[2] != "") {
+        
+    }
+}
+
+
+
+console.log(personas.reverse());
+
+console.log(personas.sort());
+
+let numeros = [800, 14, 600, 78, 190, 500];
+
+console.log(numeros);
+
+console.log(numeros.sort(comparar));
+
+console.log(numeros.sort((a, b) => a - b));
+
+console.log(personas.sort(compararPorEdad));
+
 
 
 

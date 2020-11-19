@@ -33,18 +33,36 @@ select {
 }
 
 option[selected] {
-    color: red
+    color: #fd6161
 }
 
 a[href $=".es"] {
-    color: turquoise;
+    color: #83eee3;
 }
 
 a[href $=".com"] {
-    color: violet;
+    color: #c07ac0;
 }
 
 div  h2 {
-    color: yellowgreen;
+    color: #cfff70;
 }
+
+li:first-child {
+    color: red;
+}
+
+li:last-child {
+    color: rgb(143, 73, 73);
+}
+
+li:nth-child(10) {
+    color: rgb(49, 102, 73);
+}
+
+li:empty {
+    background-color: rgb(66, 66, 66);
+}
+
+
 
