@@ -1,5 +1,5 @@
 <?php 
-    namespace app\Dwes\Videoclub\Model;
+    namespace Dwes\Videoclub\Model;
     
     interface Resumible {
         public function muestraResumen() : void;

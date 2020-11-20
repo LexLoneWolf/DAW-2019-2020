@@ -1,6 +1,5 @@
 <?php 
-
-    namespace app\Dwes\Videoclub\Model;
+    namespace Dwes\Videoclub\Model;
 
     class Juego extends Soporte implements Resumible {
         //Atributos

@@ -1,6 +1,5 @@
 <?php 
-
-    namespace app\Dwes\Videoclub\Model;
+    namespace Dwes\Videoclub\Model;
     
     class CintaVideo extends Soporte implements Resumible {
         //Atributos

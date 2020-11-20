@@ -1,13 +1,12 @@
 <?php
-
     include_once("autoload.php");
     
-    use app\Dwes\Videoclub\Model\Videoclub;
-    use app\Dwes\Videoclub\Model\Cliente;
-    use app\Dwes\Videoclub\Model\Soporte;
-    use app\Dwes\Videoclub\Model\Juego;
-    use app\Dwes\Videoclub\Model\Dvd;
-    use app\Dwes\Videoclub\Model\CintaVideo;
+    use Dwes\Videoclub\Model\Videoclub;
+    use Dwes\Videoclub\Model\Cliente;
+    use Dwes\Videoclub\Model\Soporte;
+    use Dwes\Videoclub\Model\Juego;
+    use Dwes\Videoclub\Model\Dvd;
+    use Dwes\Videoclub\Model\CintaVideo;
     
     $vc = Videoclub::getInstance();
     $vc->init("Video Gaga");

@@ -1,6 +1,5 @@
 <?php 
-
-    namespace app\Dwes\Videoclub\Model;
+    namespace Dwes\Videoclub\Model;
 
     class Cliente implements Resumible {
         //Atributos

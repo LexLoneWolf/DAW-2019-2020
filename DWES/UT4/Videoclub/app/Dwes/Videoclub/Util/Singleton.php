@@ -1,5 +1,5 @@
 <?php
-    namespace app\Dwes\Videoclub\Util;
+    namespace Dwes\Videoclub\Util;
     trait Singleton {
         private static $instance;
 
