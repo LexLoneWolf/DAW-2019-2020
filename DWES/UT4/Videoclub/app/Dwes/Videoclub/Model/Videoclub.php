@@ -2,8 +2,11 @@
     namespace Dwes\Videoclub\Model;
     
     class VideoClub implements Resumible {
-        //Atributos
+
         use \Dwes\Videoclub\Util\Singleton;
+        use \Dwes\Videoclub\Util\Logger;
+        
+        //Atributos
         private string $nombre;
         private array $productos;
         private int $numProductos;
