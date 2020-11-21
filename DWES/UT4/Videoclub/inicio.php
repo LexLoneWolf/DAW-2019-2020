@@ -32,19 +32,19 @@
     // alquilo el soporte 6 al socio 1. 
     // no se puede porque el socio 1 tiene 2 alquileres como máximo
     $vc2->alquilarSocioProducto(1,2)->alquilarSocioProducto(1,6);
-    // alquilo un producto inexistente
-    $vc2->alquilarSocioProducto(1,9);
-    // alquilo un soporte a un socio inexistente
-    $vc2->alquilarSocioProducto(5,2);
     
     // listo los socios
     $vc2->listarSocios();
     echo "<br />";
     $vc2->muestraResumen();
+    echo "<br />";
+    echo "<br />";
+    $vc->incluirSocio("Alexis");
+    $vc->getSocio(1)->devolver(3)->devolver(20);
 
-    $socio1 = new Cliente("Alexis", 10);
+    
 
-    $socio1->muestraResumen();
 
-    $socio1->devolver(2);
+
+
     

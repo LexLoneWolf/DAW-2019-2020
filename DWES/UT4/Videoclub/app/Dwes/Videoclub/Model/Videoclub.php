@@ -24,6 +24,13 @@
         }
 
         //Métodos
+
+        //Prueba
+        public function getSocio(int $numSocio) : Cliente {
+            return $this->socios[$numSocio];
+        }
+
+
         private function incluirProducto(Soporte $s) {
             $this->productos[] = $s;
             $this->numProductos++;

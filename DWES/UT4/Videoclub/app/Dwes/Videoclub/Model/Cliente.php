@@ -3,6 +3,7 @@
     
     use \Dwes\Videoclub\Util\SoporteYaAlquiladoException;
     use \Dwes\Videoclub\Util\CupoSuperadoException;
+    use \Dwes\Videoclub\Util\SoporteNoEncontradoException;
     
 
     class Cliente implements Resumible {
@@ -50,7 +51,7 @@
                     throw new CupoSuperadoException($this->maxAlquilerConcurrente);
                 } else {
                     $this->numSoportesAlquilados++;
-                    $this->soportesAlquilados[] = $s;
+                    $this->soportesAlquilados[$s->getNumero()] = $s;
                     $this->logEcho("<br /><br /><strong>Alquilado soporte a: </strong>" . $this->nombre . "<br />");
                     $s->muestraResumen();
                 }
@@ -66,23 +67,20 @@
         public function devolver(int $numSoporte): Cliente {
             try {
                 $soportesAlquilados = $this->soportesAlquilados;
-                if ($soportesAlquilados > 0) {
-                    if ($this->tieneAlquilado($soportesAlquilados[$numSoporte])) {
-                        $this->numSoporteAlquilados--;
-                        $this->logEcho("Soporte devuelto correctamente");
+                if (count($soportesAlquilados) > 0) {
+                    if (array_key_exists($numSoporte, $soportesAlquilados)) {
+                        $this->numSoportesAlquilados--;
+                        $this->logEcho("<br />Soporte " . $soportesAlquilados[$numSoporte]->getNumero() . " devuelto correctamente<br />");
+                        unset($this->soportesAlquilados[$numSoporte]);
+                    } else {
+                        throw new SoporteNoEncontradoException($numSoporte);
                     }
                 } else {
-                    if ($this->numSoportesAlquilados == 0) {
-                        throw new SoporteNoEncontradoException($this->logError("<br />Este cliente no tiene alquilado ningún elemento"));
-                    } else {
-                        throw new SoporteNoEncontradoException($this->logError("<br />No se ha podido encontrar el soporte 
-                        en los alquileres de este cliente<br />"));
-                    }  
+                    $this->logError("Este cliente no tiene alquilado ningún elemento");
                 }
             } catch (SoporteNoEncontradoException $e) {
-                $e->getMessage();
+               $e->noEncontrado();
             }
-            
             return $this;
         }
 
