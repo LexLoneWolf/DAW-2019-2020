@@ -2,11 +2,11 @@
     namespace Dwes\Videoclub\Util;
     trait Logger {
 
-        private $DEBUG = "<span style='color:blue'>debug</span>";
-        private $WARNING = "<span style='color:orange'>warning</span>";
-        private $ERROR = "<span style='color:red'>error</span>";
-        private $ECHO = "<span style='color:black'>error</span>";
-        private $CANI = "<span style='color:pink'>error</span>";
+        private $DEBUG = "<span style='color:blue'>DEBUG</span>";
+        private $WARNING = "<span style='color:orange'>WARNING</span>";
+        private $ERROR = "<span style='color:red'>ERROR</span>";
+        private $ECHO = "";
+        private $CANI = "";
 
         public function logDebug($mensaje) : void {
             $this->log($this->DEBUG, $mensaje);
@@ -21,15 +21,15 @@
         }
 
         public function logEcho($mensaje) : void {
-            $this->log($this->ECHO, $mensaje);
+            echo $this->ECHO, $mensaje;
         }
 
         public function logCani($mensaje) : void {
-            $this->log($this->CANI, cani($mensaje)); 
+            echo $this->CANI, $this->cani($mensaje); 
         }
 
         public function log($nivel, $mensaje) : void {
-            echo $nivel.":".$mensaje."<br />";
+            echo "<br />" . $nivel . ": " . $mensaje . "<br />";
         }
 
         public function cani(string $str): string {

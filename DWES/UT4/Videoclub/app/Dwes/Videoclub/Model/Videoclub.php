@@ -27,7 +27,7 @@
         private function incluirProducto(Soporte $s) {
             $this->productos[] = $s;
             $this->numProductos++;
-            echo "Incluido soporte " . $s->getNumero() . "<br />";
+            $this->logEcho("Incluido soporte " . $s->getNumero() . "<br />");
         }
 
         public function incluirCintaVideo(string $titulo, float $precio, int $duracion) {
@@ -49,24 +49,24 @@
             $socio = new Cliente($nombre, $this->numSocios, $maxAlquileresConcurrentes);
             $this->numSocios++;
             $this->socios[] = $socio;
-            echo "<br />Incluido socio " . ($this->numSocios-1);
+            $this->logEcho("<br />Incluido socio " . ($this->numSocios-1));
         }
 
         public function listarProductos(): void {
             $numProductos = $this->numProductos;
-            echo "<br />Listado de los " . $numProductos . " productos disponibles";
+            $this->logEcho("<br />Listado de los " . $numProductos . " productos disponibles");
             foreach ($this->productos as $producto) {
-                echo "<br />" . ($producto->getNumero()+1) . ".-<br />";
+                $this->logEcho("<br />" . ($producto->getNumero()+1) . ".-<br />");
                 $producto->muestraResumen();
             }
         }
 
         public function listarSocios(): void {
             $numSocios = $this->numSocios;
-            echo "<br />Listado de " . $numSocios . " socios del videoclub:";
+            $this->logEcho("<br />Listado de " . $numSocios . " socios del videoclub:");
             foreach ($this->socios as $socio) {
-                echo "<br />" . ($socio->getNumero()+1) . "-<br />";
-                echo "<br /><strong>Cliente " . $socio->getNumero() . ":</strong> ";
+                $this->logEcho("<br />" . ($socio->getNumero()+1) . "-<br />" .
+                "<br /><strong>Cliente " . $socio->getNumero() . ":</strong> ");
                 $socio->muestraResumen();
             }
         }
@@ -75,14 +75,18 @@
             if ($numSocio >= 0 && $numSocio <= count($this->socios)) {
                 if ($numProducto >= 0 && $numProducto <= count($this->productos)) {
                     $this->socios[$numSocio]->alquilar($this->productos[$numProducto]);
+                } else {
+                    $this->logError("El producto " . $numProducto . " no existe");
                 }
+            } else {
+                $this->logError("El cliente " . $numSocio . " no existe");
             }
             return $this;
         }
 
         public function muestraResumen(): void {
-            echo "<br />Videoclub: " . $this->nombre . "<br />" .
+            $this->logCani("<br />Videoclub: " . $this->nombre . "<br />" .
             "Productos: " . $this->numProductos . "<br />" .
-            "Socios: " . $this->numSocios;
+            "Socios: " . $this->numSocios);
         }
     }

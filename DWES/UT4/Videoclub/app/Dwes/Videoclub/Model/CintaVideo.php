@@ -4,6 +4,7 @@
     class CintaVideo extends Soporte implements Resumible {
 
         use \Dwes\Videoclub\Util\Logger;
+
         //Atributos
         private $duracion;
 
@@ -15,8 +16,8 @@
 
         //Métodos
         public function muestraResumen(): void {
-            logCani("Pelicula en VHS:");
-            logCani(parent::muestraResumen());
-            logCani("Duración: " . $this->duracion . " minutos");
+            $this->logCani("Pelicula en VHS:" .
+            parent::muestraResumen() .
+            "Duración: " . $this->duracion . " minutos");
         }
     }

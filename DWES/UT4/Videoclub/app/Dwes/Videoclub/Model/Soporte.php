@@ -2,6 +2,9 @@
     namespace Dwes\Videoclub\Model;
 
     abstract class Soporte implements Resumible {
+
+        use \Dwes\Videoclub\Util\Logger;
+
         // Atributos
         public const IVA = 1.16;
         public $titulo;
@@ -30,7 +33,7 @@
 
         //Métodos
         public function muestraResumen(): void {
-            echo "<br /> $this->titulo <br />" .
-            $this->getPrecio() . " (IVA no incluido)";
+            $this->logCani("<br /> $this->titulo <br />" .
+            $this->getPrecio() . " (IVA no incluido)");
         }
     }

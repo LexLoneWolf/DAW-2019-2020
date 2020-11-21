@@ -1,7 +1,14 @@
 <?php 
     namespace Dwes\Videoclub\Model;
+    
+    use \Dwes\Videoclub\Util\SoporteYaAlquiladoException;
+    use \Dwes\Videoclub\Util\CupoSuperadoException;
+    
 
     class Cliente implements Resumible {
+
+        use \Dwes\Videoclub\Util\Logger;
+        
         //Atributos
         public $nombre;
         private $numero = 0;
@@ -27,11 +34,6 @@
         }
 
         //Métodos
-        public function muestraResumen(): void {
-            echo $this->nombre . "<br />
-            Alquileres actuales: " . $this->numSoportesAlquilados;
-        }
-
         public function tieneAlquilado(Soporte $s): bool {
             $alquilado = false;
             if (in_array($s, $this->soportesAlquilados)) {
@@ -41,40 +43,56 @@
         }
 
         public function alquilar(Soporte $s): Cliente {
-            
-            if ($this->tieneAlquilado($s)) {
-                echo "<br />El cliente ya tiene alquilado el soporte: <strong>" . $s->titulo . "</strong><br />";
-            } else if ($this->numSoportesAlquilados >= $this->maxAlquilerConcurrente) {
-                echo "<br />Este cliente tiene " . $this->maxAlquilerConcurrente .
-                " elementos alquilados. No puede alquilar más en este videoclub hasta que no devuelva algo<br />";
-            } else {
-                $this->numSoportesAlquilados++;
-                $this->soportesAlquilados[] = $s;
-                echo "<br /><br /><strong>Alquilado soporte a: </strong>" . $this->nombre . "<br />";
-                $s->muestraResumen();
+            try {
+                if ($this->tieneAlquilado($s)) {
+                    throw new SoporteYaAlquiladoException($s->titulo);
+                } else if ($this->numSoportesAlquilados >= $this->maxAlquilerConcurrente) {
+                    throw new CupoSuperadoException($this->maxAlquilerConcurrente);
+                } else {
+                    $this->numSoportesAlquilados++;
+                    $this->soportesAlquilados[] = $s;
+                    $this->logEcho("<br /><br /><strong>Alquilado soporte a: </strong>" . $this->nombre . "<br />");
+                    $s->muestraResumen();
+                }
+            } catch (SoporteYaAlquiladoException $e) {
+                $e->yaAlquilado();
+            } catch (CupoSuperadoException $e) {
+                $e->cupoSuperado();
             }
+            
             return $this;
         }
 
         public function devolver(int $numSoporte): Cliente {
-            $soportesAlquilados = $this->soportesAlquilados;
-            if ($soportesAlquilados > 0) {
-                if ($this->tieneAlquilado($soportesAlquilados[$numSoporte])) {
-                    $this->numSoporteAlquilados--;
-                    echo "Soporte devuelto correctamente";
-                }
-            } else {
-                if ($this->numSoportesAlquilados == 0) {
-                    echo "<br />Este cliente no tiene alquilado ningún elemento";
+            try {
+                $soportesAlquilados = $this->soportesAlquilados;
+                if ($soportesAlquilados > 0) {
+                    if ($this->tieneAlquilado($soportesAlquilados[$numSoporte])) {
+                        $this->numSoporteAlquilados--;
+                        $this->logEcho("Soporte devuelto correctamente");
+                    }
                 } else {
-                    echo "<br />No se ha podido encontrar el soporte en los alquileres de este cliente<br />";
-                }  
+                    if ($this->numSoportesAlquilados == 0) {
+                        throw new SoporteNoEncontradoException($this->logError("<br />Este cliente no tiene alquilado ningún elemento"));
+                    } else {
+                        throw new SoporteNoEncontradoException($this->logError("<br />No se ha podido encontrar el soporte 
+                        en los alquileres de este cliente<br />"));
+                    }  
+                }
+            } catch (SoporteNoEncontradoException $e) {
+                $e->getMessage();
             }
+            
             return $this;
         }
 
+        public function muestraResumen(): void {
+            $this->logCani($this->nombre . "<br />
+            Alquileres actuales: " . $this->numSoportesAlquilados);
+        }
+
         public function listarAlquileres(): void {
-            echo "<br /><strong>El cliente tiene: " . $this->numSoportesAlquilados . " soportes alquilados</strong><br />";
+            $this->logEcho("<br /><strong>El cliente tiene: " . $this->numSoportesAlquilados . " soportes alquilados</strong><br />");
             foreach ($this->soportesAlquilados as $soporte) {
                 $soporte->muestraResumen();
             }

@@ -2,6 +2,9 @@
     namespace Dwes\Videoclub\Model;
 
     class Juego extends Soporte implements Resumible {
+
+        use \Dwes\Videoclub\Util\Logger;
+
         //Atributos
         public $consola;
         private $minNumJugadores;
@@ -18,17 +21,17 @@
         //Métodos
         public function muestraJugadoresPosibles(): void {
             if ($this->minNumJugadores == 1 && $this->maxNumJugadores == 1) {
-                echo "<br />Para un jugador";
+                $this->logCani("<br />Para un jugador");
             } else if ($this->minNumJugadores == $this->maxNumJugadores) {
-                echo "<br />Para " . $this->minNumJugadores . " jugadores";
+                $this->logCani("<br />Para " . $this->minNumJugadores . " jugadores");
             } else {
-                echo "<br />De " . $this->minNumJugadores . " a " . $this->maxNumJugadores;
+                $this->logCani("<br />De " . $this->minNumJugadores . " a " . $this->maxNumJugadores);
             }
         }
 
         public function muestraResumen(): void {
-            echo "<br />Juego para: " . $this->consola;
-            parent::muestraResumen();
-            echo $this->muestraJugadoresPosibles();
+            $this->logCani("<br />Juego para: " . $this->consola .
+            parent::muestraResumen() .
+            $this->muestraJugadoresPosibles());
         }
     }

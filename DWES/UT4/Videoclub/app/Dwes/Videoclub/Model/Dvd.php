@@ -2,6 +2,9 @@
     namespace Dwes\Videoclub\Model;
     
     class Dvd extends Soporte implements Resumible {
+
+        use \Dwes\Videoclub\Util\Logger;
+
         //Atributos
         public $idiomas;
         private $formatPantalla;
@@ -15,9 +18,9 @@
 
         // Métodos
         public function muestraResumen(): void {
-            echo "<br />Pelicula en DVD:";
-            parent::muestraResumen();
-            echo "<br />Idiomas: " . $this->idiomas . "<br />
-            Formato: " . $this->formatPantalla;
+            $this->logCani("<br />Pelicula en DVD:" .
+            parent::muestraResumen() .
+            "<br />Idiomas: " . $this->idiomas . "<br />
+            Formato: " . $this->formatPantalla);
         }
     }
