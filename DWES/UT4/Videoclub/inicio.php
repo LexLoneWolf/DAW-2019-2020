@@ -39,8 +39,11 @@
     $vc2->muestraResumen();
     echo "<br />";
     echo "<br />";
-    $vc->incluirSocio("Alexis");
-    $vc->getSocio(1)->devolver(3)->devolver(20);
+    $vc->incluirSocio("Pepe Viyuela");
+    $vc->getSocio(1)->devolver(20);
+
+    $vc->alquilarSocioProducto(2,1)->alquilarSocioProducto(2,45);
+    $vc->alquilarSocioProducto(4,30);
 
     
 

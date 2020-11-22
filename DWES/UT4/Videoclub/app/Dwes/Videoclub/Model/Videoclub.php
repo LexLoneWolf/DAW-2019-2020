@@ -1,5 +1,10 @@
 <?php 
     namespace Dwes\Videoclub\Model;
+
+    use \Dwes\Videoclub\Util\SoporteYaAlquiladoException;
+    use \Dwes\Videoclub\Util\CupoSuperadoException;
+    use \Dwes\Videoclub\Util\SoporteNoEncontradoException;
+    use \Dwes\Videoclub\Util\VideoClubException;
     
     class VideoClub implements Resumible {
 
@@ -23,14 +28,12 @@
             return $this;
         }
 
-        //Métodos
-
-        //Prueba
+        //obtiene un socio del array para probar funciones en inicio.php
         public function getSocio(int $numSocio) : Cliente {
             return $this->socios[$numSocio];
         }
 
-
+        //Métodos
         private function incluirProducto(Soporte $s) {
             $this->productos[] = $s;
             $this->numProductos++;
@@ -78,15 +81,23 @@
             }
         }
 
-        public function alquilarSocioProducto(int $numSocio, int $numProducto): Videoclub {     
-            if ($numSocio >= 0 && $numSocio <= count($this->socios)) {
-                if ($numProducto >= 0 && $numProducto <= count($this->productos)) {
-                    $this->socios[$numSocio]->alquilar($this->productos[$numProducto]);
+        public function alquilarSocioProducto(int $numSocio, int $numProducto): Videoclub {
+            try {
+                if ($numSocio >= 0 && $numSocio <= count($this->socios)) {
+                    if ($numProducto >= 0 && $numProducto <= count($this->productos)) {
+                        $this->socios[$numSocio]->alquilar($this->productos[$numProducto]);
+                    } else {
+                        $this->logError("El producto " . $numProducto . " no existe");
+                    }
                 } else {
-                    $this->logError("El producto " . $numProducto . " no existe");
+                    $this->logError("El cliente " . $numSocio . " no existe");
                 }
-            } else {
-                $this->logError("El cliente " . $numSocio . " no existe");
+            } catch (SoporteYaAlquiladoException $e) {
+                $e->YaAlquilado();
+            } catch (CupoSuperadoException $e) {
+                $e->cupoSuperado();
+            } catch (VideoclubException $e) {
+                echo $e->getMessage();
             }
             return $this;
         }

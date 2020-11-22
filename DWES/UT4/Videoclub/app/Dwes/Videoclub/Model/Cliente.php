@@ -5,7 +5,6 @@
     use \Dwes\Videoclub\Util\CupoSuperadoException;
     use \Dwes\Videoclub\Util\SoporteNoEncontradoException;
     
-
     class Cliente implements Resumible {
 
         use \Dwes\Videoclub\Util\Logger;
@@ -44,7 +43,6 @@
         }
 
         public function alquilar(Soporte $s): Cliente {
-            try {
                 if ($this->tieneAlquilado($s)) {
                     throw new SoporteYaAlquiladoException($s->titulo);
                 } else if ($this->numSoportesAlquilados >= $this->maxAlquilerConcurrente) {
@@ -52,34 +50,28 @@
                 } else {
                     $this->numSoportesAlquilados++;
                     $this->soportesAlquilados[$s->getNumero()] = $s;
-                    $this->logEcho("<br /><br /><strong>Alquilado soporte a: </strong>" . $this->nombre . "<br />");
+                    $this->logEcho("<br /><strong>Alquilado soporte a: </strong>" . $this->nombre . "<br />");
                     $s->muestraResumen();
                 }
-            } catch (SoporteYaAlquiladoException $e) {
-                $e->yaAlquilado();
-            } catch (CupoSuperadoException $e) {
-                $e->cupoSuperado();
-            }
-            
             return $this;
         }
 
         public function devolver(int $numSoporte): Cliente {
             try {
                 $soportesAlquilados = $this->soportesAlquilados;
-                if (count($soportesAlquilados) > 0) {
+                if ($this->numSoportesAlquilados > 0) {
                     if (array_key_exists($numSoporte, $soportesAlquilados)) {
                         $this->numSoportesAlquilados--;
                         $this->logEcho("<br />Soporte " . $soportesAlquilados[$numSoporte]->getNumero() . " devuelto correctamente<br />");
                         unset($this->soportesAlquilados[$numSoporte]);
                     } else {
-                        throw new SoporteNoEncontradoException($numSoporte);
+                        throw new SoporteNoEncontradoException($numSoporte, 1);
                     }
                 } else {
-                    $this->logError("Este cliente no tiene alquilado ningún elemento");
+                    throw new SoporteNoEncontradoException();
                 }
             } catch (SoporteNoEncontradoException $e) {
-               $e->noEncontrado();
+                $e->noEncontrado();
             }
             return $this;
         }
