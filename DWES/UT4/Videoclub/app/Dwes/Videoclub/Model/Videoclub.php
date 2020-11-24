@@ -17,6 +17,8 @@
         private int $numProductos;
         private array $socios;
         private int $numSocios;
+        private int $numProductosAlquilados;
+        private int $numTotalAlquileres;
 
         //Constructor
         public function init(string $nombre): Videoclub {
@@ -25,7 +27,18 @@
             $this->numProductos = 0;
             $this->socios = [];
             $this->numSocios = 0;
+            $numProductosAlquilados = 0;
+            $numTotalAlquileres = 0;
             return $this;
+        }
+
+        //Getters 
+        public function getNumProductosAlquilados() : int {
+            return $this->numProductosAlquilados;
+        }
+
+        public function getNumTotalAlquileres() : int {
+            return $this->numTotalAlquileres;
         }
 
         //obtiene un socio del array para probar funciones en inicio.php
@@ -89,6 +102,34 @@
                     } else {
                         $this->logError("El producto " . $numProducto . " no existe");
                     }
+                } else {
+                    $this->logError("El cliente " . $numSocio . " no existe");
+                }
+            } catch (SoporteYaAlquiladoException $e) {
+                $e->YaAlquilado();
+            } catch (CupoSuperadoException $e) {
+                $e->cupoSuperado();
+            } catch (VideoclubException $e) {
+                echo $e->getMessage();
+            }
+            return $this;
+        }
+
+        public function alquilarSocioProductos(int $numSocio, array $numerosProducto) : Videoclub {
+            try {
+                if ($numSocio >= 0 && $numSocio <= count($this->socios)) {
+                    $alquila = true;
+                    $tam = count($numerosProducto);
+                    foreach ($this->productos as $producto) {
+                        if ($producto->getAlquilado == true) {
+                            $alquila = false;
+                        }
+                    }
+                    if ($alquila) {
+                        for ($i=0; $i < $tam; $i++) { 
+                            $this->alquilarSocioProducto($numSocio,$numerosProducto[$i]);
+                        }  
+                    }  
                 } else {
                     $this->logError("El cliente " . $numSocio . " no existe");
                 }

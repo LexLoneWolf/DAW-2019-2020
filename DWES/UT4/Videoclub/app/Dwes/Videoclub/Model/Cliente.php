@@ -50,6 +50,7 @@
                 } else {
                     $this->numSoportesAlquilados++;
                     $this->soportesAlquilados[$s->getNumero()] = $s;
+                    $s->setAlquilado(true);
                     $this->logEcho("<br /><strong>Alquilado soporte a: </strong>" . $this->nombre . "<br />");
                     $s->muestraResumen();
                 }

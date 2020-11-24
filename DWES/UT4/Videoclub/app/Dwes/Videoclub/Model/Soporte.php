@@ -10,12 +10,14 @@
         public $titulo;
         protected $numero;
         private $precio;
+        protected $alquilado;
 
         // Constructor
         public function __construct(string $titulo, int $numero, float $precio) {
             $this->titulo = $titulo;
             $this->numero = $numero;
             $this->precio = $precio;
+            $this->alquilado = false;
         }
 
         // Getters y Setters
@@ -29,6 +31,10 @@
 
         public function getNumero(): int {
             return $this->numero;
+        }
+
+        public function setAlquilado(bool $alquilado) {
+            $this->alquilado = $alquilado;
         }
 
         //Métodos
