@@ -2,6 +2,7 @@
     namespace Dwes\Videoclub\Util;
     
     class SoporteYaAlquiladoException extends VideoclubException {
+        
         use \Dwes\Videoclub\Util\Logger;
 
         public function yaAlquilado() : void {

@@ -1,5 +1,6 @@
 <?php 
     namespace Dwes\Videoclub\Util;
+    
     class CupoSuperadoException extends VideoclubException {
 
         use \Dwes\Videoclub\Util\Logger;

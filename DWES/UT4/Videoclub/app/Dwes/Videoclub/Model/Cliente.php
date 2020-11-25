@@ -58,21 +58,18 @@
         }
 
         public function devolver(int $numSoporte): Cliente {
-            try {
-                $soportesAlquilados = $this->soportesAlquilados;
-                if ($this->numSoportesAlquilados > 0) {
-                    if (array_key_exists($numSoporte, $soportesAlquilados)) {
-                        $this->numSoportesAlquilados--;
-                        $this->logEcho("<br />Soporte " . $soportesAlquilados[$numSoporte]->getNumero() . " devuelto correctamente<br />");
-                        unset($this->soportesAlquilados[$numSoporte]);
-                    } else {
-                        throw new SoporteNoEncontradoException($numSoporte, 1);
-                    }
+            $soportesAlquilados = $this->soportesAlquilados;
+            if ($this->numSoportesAlquilados > 0) {
+                if (array_key_exists($numSoporte, $soportesAlquilados)) {
+                    $this->numSoportesAlquilados--;
+                    $this->logEcho("<br /><strong>Soporte devuelto correctamente :</strong>");
+                    $soportesAlquilados[$numSoporte]->muestraResumen(); 
+                    unset($this->soportesAlquilados[$numSoporte]);
                 } else {
-                    throw new SoporteNoEncontradoException();
+                    throw new SoporteNoEncontradoException($numSoporte, 1);
                 }
-            } catch (SoporteNoEncontradoException $e) {
-                $e->noEncontrado();
+            } else {
+                throw new SoporteNoEncontradoException();
             }
             return $this;
         }

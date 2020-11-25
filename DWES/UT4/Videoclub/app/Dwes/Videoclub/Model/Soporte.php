@@ -37,6 +37,10 @@
             $this->alquilado = $alquilado;
         }
 
+        public function getAlquilado() : bool {
+            return $this->alquilado;
+        }
+
         //Métodos
         public function muestraResumen(): void {
             $this->logCani("<br /> $this->titulo <br />" .

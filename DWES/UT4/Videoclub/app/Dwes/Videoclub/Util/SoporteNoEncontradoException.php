@@ -2,6 +2,7 @@
     namespace Dwes\Videoclub\Util;
 
     class SoporteNoEncontradoException extends VideoclubException {
+        
         use \Dwes\Videoclub\Util\Logger;
 
         public function soporteNoEncontrado() : void {

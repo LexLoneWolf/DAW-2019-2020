@@ -25,13 +25,13 @@
     $vc2 = Videoclub::getInstance();
     $vc2->incluirSocio("Amancio Ortega");
     $vc2->incluirSocio("Pablo Picasso",2);
-    $vc2->alquilarSocioProducto(0,0)->alquilarSocioProducto(0,1);
-    $vc2->alquilarSocioProducto(1,2)->alquilarSocioProducto(1,3);
+    //$vc2->alquilarSocioProducto(0,0)->alquilarSocioProducto(0,1);
+    //$vc2->alquilarSocioProducto(1,2)->alquilarSocioProducto(1,3);
     // alquilo otra vez el soporte 2 al socio 1. 
     // no debe dejarme porque ya lo tiene alquilado
     // alquilo el soporte 6 al socio 1. 
     // no se puede porque el socio 1 tiene 2 alquileres como máximo
-    $vc2->alquilarSocioProducto(1,2)->alquilarSocioProducto(1,6);
+    //$vc2->alquilarSocioProducto(1,2)->alquilarSocioProducto(1,6);
     
     // listo los socios
     $vc2->listarSocios();
@@ -40,14 +40,21 @@
     echo "<br />";
     echo "<br />";
     $vc->incluirSocio("Pepe Viyuela");
-    $vc->getSocio(1)->devolver(20);
+    //$vc->getSocio(1)->devolver(20);
 
-    $vc->alquilarSocioProducto(2,1)->alquilarSocioProducto(2,45);
-    $vc->alquilarSocioProducto(4,30);
-
+    //$vc->alquilarSocioProducto(2,1)->alquilarSocioProducto(2,45);
+    $vc->incluirJuego("Horizon Zero Dawn", 40, "PS4/PC", 1,1);
+    $vc->incluirJuego("Final Fantasy X", 40, "PS4/PC", 1,1);
+    $vc->incluirDvd("BigFish", 4.5, "es/en", "16:9");
     
+    //$vc->alquilarSocioProductos(2, [58, 8, 9]);
+    $vc->alquilarSocioProductos(2, [7, 8, 9]);
 
+    echo "<br />";
+    //$vc->devolverSocioProducto(2, 7);
+    echo "<br />";
+    //$vc->muestraResumen();
 
-
-
-    
+    $vc->devolverSocioProductos(2,[7,8,9]);
+    echo "<br />";
+    $vc->muestraResumen();

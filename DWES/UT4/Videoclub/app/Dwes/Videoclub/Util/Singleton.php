@@ -1,6 +1,8 @@
 <?php
     namespace Dwes\Videoclub\Util;
+    
     trait Singleton {
+
         private static $instance;
 
         public static function getInstance() {

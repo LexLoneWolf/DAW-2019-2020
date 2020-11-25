@@ -1,5 +1,6 @@
 <?php 
     namespace Dwes\Videoclub\Util;
+    
     trait Logger {
 
         private $DEBUG = "<span style='color:blue'>DEBUG</span>";
