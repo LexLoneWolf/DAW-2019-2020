@@ -147,20 +147,20 @@
 //     }
 // }
 
-// let numeros = [];
-// let mayor = 0;
-// let pos = 0;
-// for (let i = 0; i < 20; i++) {
-//     numeros[i] = Math.floor(Math.random() * 100)+1;
-//     if (mayor < numeros[i]) {
-//         mayor = numeros[i];
-//         pos = i;
-//     }
-// }
+let numeros = [];
+let mayor = 0;
+let pos = 0;
+for (let i = 0; i < 20; i++) {
+    numeros[i] = Math.floor(Math.random() * 100)+1;
+    if (mayor < numeros[i]) {
+        mayor = numeros[i];
+        pos = i;
+    }
+}
 
-// for (let i = 0; i < numeros.length; i++) {
-//     console.log(numeros[i]);
-// }
+for (let i = 0; i < numeros.length; i++) {
+    console.log(numeros[i]);
+}
 
 
 // mayor = -1;
@@ -196,7 +196,7 @@
 
 // console.log(array.splice(3,1));
 
-function comparar(a, b) {
+/*function comparar(a, b) {
     if (a < b) {
         return -1;
     }
@@ -206,9 +206,9 @@ function comparar(a, b) {
     }
 
     return 0;
-}
+}*/
 
-let personas = [
+/*let personas = [
     ["Jose", 47, "Profesor"],
     ["Ana", 20, "Estudiante"],
     ["Pepe", 32, "Administrador"],
@@ -225,7 +225,6 @@ function compararPorEdad(a,b) {
     if (a[1] > b[1]) {
         return 1;
     }
-
     return 0;
 }
 
@@ -236,10 +235,10 @@ function comparar(a,b) {
     if (a[2] != "") {
         
     }
-}
+}*/
 
 
-
+/*
 console.log(personas.reverse());
 
 console.log(personas.sort());
@@ -252,9 +251,29 @@ console.log(numeros.sort(comparar));
 
 console.log(numeros.sort((a, b) => a - b));
 
-console.log(personas.sort(compararPorEdad));
+console.log(personas.sort(compararPorEdad));*/
 
+let notas = [
+    ["Jose", 0],
+    ["Ana", 8],
+    ["Pepe", 7],
+    ["Francisco", 9],
+    ["Adrián", 6],
+    ["Carlos", 9],
+    ["Luisa", 8],
+    ["María", 5],
+    ["José Luis", 4],
+    ["Severiano", 3],
+    ["Ángeles", 9],
+    ["Pedro", 4]   
+];
 
+console.log(notas.every(nota =>nota[1]>=5));
 
+console.log(notas.some(nota =>nota[1]>=5));
 
+console.log(numeros.map(num=>num+10));
 
+console.log(notas.filter(nota=>nota[1]>=5));
+
+console.log(numeros.reduce((acum,item) =>acum+=item,-1000));
