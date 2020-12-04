@@ -120,7 +120,7 @@
         <input type="number" name="numero" step="5" min="0" max="100"/><br />
 
         <label for="rango">Rango</label>
-        <input type="range" name="rango" /><br />
+        <input type="range" name="rango" step="10" /><br />
 
         <label for="buscar">Buscar</label>
         <input type="search" name="buscar" /><br />
@@ -156,6 +156,61 @@
 
         <input type="button" value="Botón onclick submit" onclick="submit();" />
     </form>
+
+    <table border="1" style="text-align: center;">
+        <tr>
+            <td>1</td>
+            <td colspan="3">2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td rowspan="2">8</td>
+            <td>9</td>
+            <td rowspan="3">10</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td colspan="2">13</td>
+            <td>14</td>
+        </tr>
+    </table>
+
+    <table border="1" style="text-align: center;">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td colspan="3">8</td>
+            <td rowspan="2">9</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>12</td>
+            <td colspan="2" rowspan="2">13</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td colspan="2">16</td>
+            <td>17</td>
+            <td>18</td>
+        </tr>
+    </table>
 
     
 </body>
