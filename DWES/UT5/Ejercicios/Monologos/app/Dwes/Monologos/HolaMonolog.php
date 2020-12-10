@@ -22,6 +22,10 @@ class HolaMonolog {
 
     }
 
+    public function getHora() : int {
+        return $this->hora;
+    }
+
     //Métodos
     public function horaCorrecta() : bool {
         $hora = $this->hora;
