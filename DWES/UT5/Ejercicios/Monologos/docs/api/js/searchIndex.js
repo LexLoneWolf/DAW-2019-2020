@@ -18,22 +18,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Dwes\\Monologos\\HolaMonolog\u003A\u003Asaludar\u0028\u0029",
             "name": "saludar",
-            "summary": "",
+            "summary": "Saluda\u0020con\u0020un\u0020mensaje\u0020acorde\u0020a\u0020una\u0020hora",
             "url": "classes/Dwes-Monologos-HolaMonolog.html#method_saludar"
         },                {
             "fqsen": "\\Dwes\\Monologos\\HolaMonolog\u003A\u003Adespedir\u0028\u0029",
             "name": "despedir",
-            "summary": "",
+            "summary": "Lanza\u0020un\u0020mensaje\u0020de\u0020despedida",
             "url": "classes/Dwes-Monologos-HolaMonolog.html#method_despedir"
         },                {
             "fqsen": "\\Dwes\\Monologos\\HolaMonolog\u003A\u003A\u0024log",
             "name": "log",
-            "summary": "",
+            "summary": "Variable\u0020para\u0020instanciar\u0020el\u0020Logger",
             "url": "classes/Dwes-Monologos-HolaMonolog.html#property_log"
         },                {
             "fqsen": "\\Dwes\\Monologos\\HolaMonolog\u003A\u003A\u0024hora",
             "name": "hora",
-            "summary": "",
+            "summary": "Almacena\u0020una\u0020hora\u0020en\u0020formato\u0020HH",
             "url": "classes/Dwes-Monologos-HolaMonolog.html#property_hora"
         },                {
             "fqsen": "\\",

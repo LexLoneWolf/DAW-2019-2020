@@ -9,12 +9,22 @@ use Monolog\Processor\IntrospectionProcessor;
 /**
  * Clase para pruebas de logs
  * 
+ * Clase para realizar pruebas de la librería Monolog
+ * 
  * @package Dwes\Monologos
  * @author LexLoneWolf <lareone91@gmail.com>
  */
 class HolaMonolog {
     //Atributos
+    /**
+     * Variable para instanciar el Logger
+     * @var Logger 
+     */
     private $log;
+    /**
+     * Almacena una hora en formato HH
+     * @var int 
+     */
     private $hora;
 
     //Constructor 
@@ -36,6 +46,14 @@ class HolaMonolog {
     }
 
     //Métodos
+    /**
+     * Saluda con un mensaje acorde a una hora 
+     * 
+     * El mensaje dependerá de la hora recibida en el constructor
+     * Guarda un log cada vez que se ejecuta
+     * 
+     * @return string $saludo Devuelve el mensaje del saludo
+     */
     public function saludar(): string {
         $saludo = "";
         $hora = $this->hora;
@@ -52,6 +70,13 @@ class HolaMonolog {
         return $saludo;
     }
 
+    /**
+     * Lanza un mensaje de despedida
+     * 
+     * Guarda un log cada vez que se ejecuta
+     * 
+     * @return string $despedida Devuelve el mensaje de la despedida
+     */
     public function despedir(): string {
         $despedida = "";
         $this->log->info("Hasta mañana");
