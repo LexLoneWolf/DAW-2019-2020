@@ -11,6 +11,18 @@ class HolaMonologTest extends TestCase {
         $hm = new HolaMonolog(10);
 
         $this->assertSame(10,$hm->getHora());
+
+        $hm = new HolaMonolog(13);
+
+        $this->assertSame(13,$hm->getHora());
+
+        $hm = new HolaMonolog(22);
+
+        $this->assertSame(22,$hm->getHora());
+        
+    }
+    
+    public function testDespedir() {
         
     }
 }
