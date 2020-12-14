@@ -20,40 +20,37 @@ class HolaMonolog {
         $this->log->pushHandler(new FirePHPHandler(Logger::DEBUG));
         $this->log->pushProcessor(new IntrospectionProcessor);
 
+        if ($hora < 0 || $hora > 24) {
+            $this->log->warning("Formato de hora incorrecto");
+        }
     }
 
+    //Getters & Setters
     public function getHora() : int {
         return $this->hora;
     }
 
     //Métodos
-    public function horaCorrecta() : bool {
+    public function saludar(): string {
+        $saludo = "";
         $hora = $this->hora;
-        $horaCorrecta = false;
-        if ($hora < 0 || $hora > 24) {
-            $this->log->warning("Formato de hora incorrecto");
+        if ($hora > 6 && $hora < 12 ) {
+            $this->log->info("Buenos días");
+            $saludo = "Buenos días";
+        } else if ($hora < 20) {
+            $this->log->info("Buenas tardes");
+            $saludo = "Buenas tardes";
         } else {
-            $horaCorrecta = true;
-        }
-        return $horaCorrecta;
-    }
-
-    public function saludar() {
-        $hora = $this->hora;
-        if ($this->horaCorrecta()) {
-            if ($hora > 6 && $hora < 12 ) {
-                $this->log->info("Buenos días"); 
-            } else if ($hora < 20) {
-                $this->log->info("Buenas tardes");
-            } else {
-                $this->log->info("Buenas noches");
-            } 
-        }
-    }
-
-    public function despedir() {
-        if ($this->horaCorrecta()) {
-            $this->log->info("Hasta mañana");
+            $this->log->info("Buenas noches");
+            $saludo = "Buenas noches";
         } 
+        return $saludo;
+    }
+
+    public function despedir(): string {
+        $despedida = "";
+        $this->log->info("Hasta mañana");
+        $despedida = "Hasta mañana";
+        return $despedida;
     }
 }

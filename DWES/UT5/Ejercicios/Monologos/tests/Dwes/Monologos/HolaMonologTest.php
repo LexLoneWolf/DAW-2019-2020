@@ -11,5 +11,6 @@ class HolaMonologTest extends TestCase {
         $hm = new HolaMonolog(10);
 
         $this->assertSame(10,$hm->getHora());
+        
     }
 }
