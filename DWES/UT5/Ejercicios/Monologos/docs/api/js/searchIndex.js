@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\Dwes\\Monologos\\HolaMonolog",
             "name": "HolaMonolog",
-            "summary": "",
+            "summary": "Clase\u0020para\u0020pruebas\u0020de\u0020logs",
             "url": "classes/Dwes-Monologos-HolaMonolog.html"
         },                {
             "fqsen": "\\Dwes\\Monologos\\HolaMonolog\u003A\u003A__construct\u0028\u0029",

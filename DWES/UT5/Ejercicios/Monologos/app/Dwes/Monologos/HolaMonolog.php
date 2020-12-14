@@ -6,7 +6,12 @@ use Monolog\Logger;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\FirePHPHandler;
 use Monolog\Processor\IntrospectionProcessor;
-
+/**
+ * Clase para pruebas de logs
+ * 
+ * @package Dwes\Monologos
+ * @author LexLoneWolf <lareone91@gmail.com>
+ */
 class HolaMonolog {
     //Atributos
     private $log;
