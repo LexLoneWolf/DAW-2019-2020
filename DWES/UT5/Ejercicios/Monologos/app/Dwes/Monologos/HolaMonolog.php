@@ -79,7 +79,7 @@ class HolaMonolog {
      */
     public function despedir() : string {
         $despedida = "";
-        //$this->log->info("Hasta mañana");
+        $this->log->info("Hasta mañana");
         $despedida = "Hasta mañana";
         return $despedida;
     }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['saludar_7',['saludar',['../class_dwes_1_1_monologos_1_1_hola_monolog.html#aa1d1defa197bd7b78fd37c50b2db0dc9',1,'Dwes::Monologos::HolaMonolog']]]
+  ['despedir_13',['despedir',['../class_dwes_1_1_monologos_1_1_hola_monolog.html#a1831b8ecab69639b2b84f89c1963fed9',1,'Dwes::Monologos::HolaMonolog']]]
 ];

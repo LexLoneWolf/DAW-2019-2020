@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => '64b6673bb21192bdcd213917c56e8b3e886b7810',
+    'reference' => 'b3e560c850f46f50342094813d1c0c385f3bc962',
     'name' => 'alexis/monolog',
   ),
   'versions' => 
   array (
     'alexis/monolog' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => '64b6673bb21192bdcd213917c56e8b3e886b7810',
+      'reference' => 'b3e560c850f46f50342094813d1c0c385f3bc962',
     ),
     'doctrine/instantiator' => 
     array (
@@ -31,12 +31,12 @@
     ),
     'monolog/monolog' => 
     array (
-      'pretty_version' => '2.1.1',
-      'version' => '2.1.1.0',
+      'pretty_version' => '2.2.0',
+      'version' => '2.2.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f9eee5cec93dfb313a38b6b288741e84e53f02d5',
+      'reference' => '1cb1cde8e8dd0f70cc0fe51354a59acad9302084',
     ),
     'myclabs/deep-copy' => 
     array (
