@@ -25,7 +25,7 @@ class HolaMonolog {
      * Almacena una hora en formato HH
      * @var int 
      */
-    private $hora;
+    private int $hora;
 
     //Constructor 
     public function __construct($hora) {
@@ -54,7 +54,7 @@ class HolaMonolog {
      * 
      * @return string $saludo Devuelve el mensaje del saludo
      */
-    public function saludar(): string {
+    public function saludar() : string {
         $saludo = "";
         $hora = $this->hora;
         if ($hora > 6 && $hora < 12 ) {
@@ -77,9 +77,9 @@ class HolaMonolog {
      * 
      * @return string $despedida Devuelve el mensaje de la despedida
      */
-    public function despedir(): string {
+    public function despedir() : string {
         $despedida = "";
-        $this->log->info("Hasta mañana");
+        //$this->log->info("Hasta mañana");
         $despedida = "Hasta mañana";
         return $despedida;
     }
