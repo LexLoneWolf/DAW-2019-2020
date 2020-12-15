@@ -1,0 +1,54 @@
+header {
+    height: 50px;
+    max-width: 360px;
+    font-family: fantasy;
+    font-size: 50px;
+}
+
+header li {
+    margin: 0;
+    display: inline;
+}
+
+header li:nth-child(odd) {
+    color: white;
+    background-color: yellowgreen;
+}
+
+header li:nth-child(even) {
+    color: yellowgreen;
+    background-color: white;
+}
+
+header img {
+    height: 50px;  
+}
+
+header ul {
+    list-style-type: none;
+    display: inline;
+    padding: 0;
+    margin: auto;
+}
+
+header li {
+    display: inline-block;
+}
+
+header:hover {
+    height: 100px;
+    font-size: 80px;
+}
+
+section {
+    background-color: wheat;
+}
+
+section > p {
+    color: blue;
+}
+
+footer {
+    background-color: darkmagenta;
+    color: #FFF;
+}

@@ -1,0 +1,29 @@
+[2020-12-09T12:02:44.446771+01:00] MiLog.INFO: Hola [] []
+[2020-12-09T12:02:46.786677+01:00] MiLog.INFO: Hola [] []
+[2020-12-09T12:04:03.586096+01:00] MiLog.INFO: Hola [] []
+[2020-12-09T12:07:29.075186+01:00] MiLog.INFO: Hola [] []
+[2020-12-09T12:08:58.603727+01:00] MiLog.INFO: Hola [] []
+[2020-12-09T12:09:28.628362+01:00] MiLog.INFO: Hola [] []
+[2020-12-09T12:09:28.629144+01:00] MiLog.INFO: Adiós [] []
+[2020-12-09T12:11:15.364936+01:00] MiLog.WARNING: Hola [] []
+[2020-12-09T12:11:15.366667+01:00] MiLog.WARNING: Adiós [] []
+[2020-12-09T12:22:43.084628+01:00] MiLog.WARNING: Hola [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":24,"class":"Dwes\\Monologos\\HolaMonolog","function":"saludar"}
+[2020-12-09T12:22:43.086675+01:00] MiLog.WARNING: Adiós [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":28,"class":"Dwes\\Monologos\\HolaMonolog","function":"despedir"}
+[2020-12-09T12:23:38.114213+01:00] MiLog.WARNING: Hola [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":27,"class":"Dwes\\Monologos\\HolaMonolog","function":"saludar"}
+[2020-12-09T12:23:38.115818+01:00] MiLog.WARNING: Adiós [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":31,"class":"Dwes\\Monologos\\HolaMonolog","function":"despedir"}
+[2020-12-09T12:29:38.692997+01:00] MiLog.WARNING: Hola [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":27,"class":"Dwes\\Monologos\\HolaMonolog","function":"saludar"}
+[2020-12-09T12:29:38.693988+01:00] MiLog.WARNING: Adiós [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":31,"class":"Dwes\\Monologos\\HolaMonolog","function":"despedir"}
+[2020-12-09T12:43:29.008629+01:00] MiLog.WARNING: Hola [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":39,"class":"Dwes\\Monologos\\HolaMonolog","function":"saludar"}
+[2020-12-09T12:43:29.009517+01:00] MiLog.WARNING: Adiós [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":45,"class":"Dwes\\Monologos\\HolaMonolog","function":"despedir"}
+[2020-12-09T12:44:01.310488+01:00] MiLog.WARNING: Formato de hora incorrecto [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":29,"class":"Dwes\\Monologos\\HolaMonolog","function":"comprobarHora"}
+[2020-12-09T12:44:01.311561+01:00] MiLog.WARNING: Formato de hora incorrecto [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":29,"class":"Dwes\\Monologos\\HolaMonolog","function":"comprobarHora"}
+[2020-12-09T13:14:07.660932+01:00] MiLog.INFO: Buenas tardes [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":42,"class":"Dwes\\Monologos\\HolaMonolog","function":"saludar"}
+[2020-12-09T13:14:07.661949+01:00] MiLog.INFO: Hasta mañana [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":51,"class":"Dwes\\Monologos\\HolaMonolog","function":"despedir"}
+[2020-12-09T13:14:33.741130+01:00] MiLog.INFO: Buenos días [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":41,"class":"Dwes\\Monologos\\HolaMonolog","function":"saludar"}
+[2020-12-09T13:14:33.742128+01:00] MiLog.INFO: Hasta mañana [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":52,"class":"Dwes\\Monologos\\HolaMonolog","function":"despedir"}
+[2020-12-09T13:15:10.399912+01:00] MiLog.INFO: Buenos días [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":41,"class":"Dwes\\Monologos\\HolaMonolog","function":"saludar"}
+[2020-12-09T13:15:10.400925+01:00] MiLog.INFO: Hasta mañana [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":52,"class":"Dwes\\Monologos\\HolaMonolog","function":"despedir"}
+[2020-12-09T13:16:12.686277+01:00] MiLog.INFO: Buenas tardes [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":43,"class":"Dwes\\Monologos\\HolaMonolog","function":"saludar"}
+[2020-12-09T13:16:12.689058+01:00] MiLog.INFO: Hasta mañana [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":52,"class":"Dwes\\Monologos\\HolaMonolog","function":"despedir"}
+[2020-12-09T13:16:32.907301+01:00] MiLog.INFO: Buenas noches [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":45,"class":"Dwes\\Monologos\\HolaMonolog","function":"saludar"}
+[2020-12-09T13:16:32.909057+01:00] MiLog.INFO: Hasta mañana [] {"file":"/opt/lampp/htdocs/DWES/DAW-2019-2020/DWES/UT5/Ejercicios/Monologos/app/Dwes/Monologos/HolaMonolog.php","line":52,"class":"Dwes\\Monologos\\HolaMonolog","function":"despedir"}

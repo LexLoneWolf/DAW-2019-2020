@@ -1,0 +1,21 @@
+{
+    "name": "alexis/monolog",
+    "description": "Proyecto Monolog",
+    "type": "project",
+    "require": {
+        "monolog/monolog": "^2.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+    "authors": [{
+        "name": "LexLoneWolf",
+        "email": "lareone91@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": { "Dwes\\": "app/Dwes" }
+    },
+    "scripts": {
+        "test": "phpunit --testdox --colors tests"
+    }
+}

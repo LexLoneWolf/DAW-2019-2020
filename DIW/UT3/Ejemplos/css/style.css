@@ -1,0 +1,78 @@
+* {
+    color: #FFF;
+}
+
+body {
+    background-color: rgb(34, 34, 34);
+}
+
+h1{
+    font-size: 40px;
+    color: cadetblue;
+}
+
+h2 {
+    color: #FFF;
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+    color: #7fffd4;
+}
+
+#prueba {
+    color: #02c0e2;
+}
+
+.clase1 {
+    font-size: 5px;
+}
+
+select {
+   background-color: #232323;
+}
+
+option[selected] {
+    color: #fd6161
+}
+
+a[href $=".es"] {
+    color: #83eee3;
+}
+
+a[href $=".com"] {
+    color: #c07ac0;
+}
+
+div  h2 {
+    color: #cfff70;
+}
+
+li:first-child {
+    color: red;
+}
+
+li:last-child {
+    color: rgb(143, 73, 73);
+}
+
+li:nth-child(10) {
+    color: rgb(49, 102, 73);
+}
+
+li:empty {
+    background-color: rgb(66, 66, 66);
+}
+
+p::selection {
+    color: white;
+    background-color: black;
+}
+
+li::selection {
+    color: blueviolet;
+    background-color: black;
+}
+
+
+
