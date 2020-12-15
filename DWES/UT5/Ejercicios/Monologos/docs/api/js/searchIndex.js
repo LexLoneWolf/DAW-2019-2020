@@ -16,6 +16,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Dwes-Monologos-HolaMonolog.html#method_getHora"
         },                {
+            "fqsen": "\\Dwes\\Monologos\\HolaMonolog\u003A\u003AgetUltimosSaludos\u0028\u0029",
+            "name": "getUltimosSaludos",
+            "summary": "",
+            "url": "classes/Dwes-Monologos-HolaMonolog.html#method_getUltimosSaludos"
+        },                {
             "fqsen": "\\Dwes\\Monologos\\HolaMonolog\u003A\u003Asaludar\u0028\u0029",
             "name": "saludar",
             "summary": "Saluda\u0020con\u0020un\u0020mensaje\u0020acorde\u0020a\u0020una\u0020hora",
@@ -35,6 +40,11 @@ Search.appendIndex(
             "name": "hora",
             "summary": "Almacena\u0020una\u0020hora\u0020en\u0020formato\u0020HH",
             "url": "classes/Dwes-Monologos-HolaMonolog.html#property_hora"
+        },                {
+            "fqsen": "\\Dwes\\Monologos\\HolaMonolog\u003A\u003A\u0024ultimosSaludos",
+            "name": "ultimosSaludos",
+            "summary": "Almacena\u0020los\u00203\u0020\u00FAltimos\u0020saludos",
+            "url": "classes/Dwes-Monologos-HolaMonolog.html#property_ultimosSaludos"
         },                {
             "fqsen": "\\",
             "name": "\\",

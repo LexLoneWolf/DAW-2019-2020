@@ -18,7 +18,13 @@ class HolaMonologTest extends TestCase {
 
         $hm = new HolaMonolog(22);
         $this->assertSame(22,$hm->getHora());
-        $this->assertSame("Buenas noches", $hm->saludar()); 
+        $this->assertSame("Buenas noches", $hm->saludar());
+        $hm->saludar();
+        $hm->saludar();
+        $hm->saludar();
+
+        $this->assertsame(["Buenas noches", "Buenas noches", "Buenas noches"], $hm->getUltimosSaludos());
+
     }
     
     public function testDespedir() {

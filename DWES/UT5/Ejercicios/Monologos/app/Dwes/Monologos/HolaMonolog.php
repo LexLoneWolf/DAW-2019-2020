@@ -27,9 +27,16 @@ class HolaMonolog {
      */
     private int $hora;
 
+    /**
+     * Almacena los 3 últimos saludos
+     * @var array 
+     */
+    private array $ultimosSaludos;
+
     //Constructor 
     public function __construct($hora) {
         $this->hora = $hora;
+        $this->ultimosSaludos = [];
         $this->log = new Logger("MiLog");
         $this->log->pushHandler(new RotatingFileHandler("logs/log.log",Logger::INFO));
         $this->log->pushHandler(new FirePHPHandler(Logger::DEBUG));
@@ -43,6 +50,10 @@ class HolaMonolog {
     //Getters & Setters
     public function getHora() : int {
         return $this->hora;
+    }
+
+    public function getUltimosSaludos() : array  {
+        return $this->ultimosSaludos;
     }
 
     //Métodos
@@ -67,6 +78,12 @@ class HolaMonolog {
             $this->log->info("Buenas noches");
             $saludo = "Buenas noches";
         } 
+
+        $this->ultimosSaludos[] = $saludo;
+
+        if (count($this->ultimosSaludos) > 3) {
+            array_shift($this->ultimosSaludos);
+        }
         return $saludo;
     }
 
