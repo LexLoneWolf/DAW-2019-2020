@@ -80,10 +80,8 @@ class HolaMonolog {
         } 
 
         $this->ultimosSaludos[] = $saludo;
+        $this->almacenarSaludos();
 
-        if (count($this->ultimosSaludos) > 3) {
-            array_shift($this->ultimosSaludos);
-        }
         return $saludo;
     }
 
@@ -96,8 +94,24 @@ class HolaMonolog {
      */
     public function despedir() : string {
         $despedida = "";
-        $this->log->info("Hasta mañana");
-        $despedida = "Hasta mañana";
+
+        if ($this->hora < 20) {
+            $this->log->info("Hasta luego");
+            $despedida = "Hasta luego";
+        } else {
+            $this->log->info("Hasta mañana");
+            $despedida = "Hasta mañana";
+        }
+        
+        $this->ultimosSaludos[] = $despedida;
+        $this->almacenarSaludos();
+
         return $despedida;
+    }
+
+    public function almacenarSaludos() : void {
+        if (count($this->ultimosSaludos) > 3) {
+            array_shift($this->ultimosSaludos);
+        }
     }
 }
