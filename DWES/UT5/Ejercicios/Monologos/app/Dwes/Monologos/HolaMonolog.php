@@ -35,7 +35,7 @@ class HolaMonolog {
 
     //Constructor 
     public function __construct($hora) {
-        $this->hora = $hora;
+
         $this->ultimosSaludos = [];
         $this->log = new Logger("MiLog");
         $this->log->pushHandler(new RotatingFileHandler("logs/log.log",Logger::INFO));
@@ -44,12 +44,24 @@ class HolaMonolog {
 
         if ($hora < 0 || $hora > 24) {
             $this->log->warning("Formato de hora incorrecto");
+            throw new \InvalidArgumentException("Hora incorrecta");
+        } else {
+            $this->hora = $hora;
         }
     }
 
     //Getters & Setters
     public function getHora() : int {
         return $this->hora;
+    }
+
+    public function setHora(int $hora) {
+        if ($hora < 0 || $hora > 24) {
+            throw new \InvalidArgumentException("Hora incorrecta");
+        } else {
+            $this->hora = $hora;
+        }
+        
     }
 
     public function getUltimosSaludos() : array  {
@@ -80,7 +92,7 @@ class HolaMonolog {
         } 
 
         $this->ultimosSaludos[] = $saludo;
-        $this->almacenarSaludos();
+        $this->almacenarUltimosMensajes();
 
         return $saludo;
     }
@@ -104,12 +116,15 @@ class HolaMonolog {
         }
         
         $this->ultimosSaludos[] = $despedida;
-        $this->almacenarSaludos();
+        $this->almacenarUltimosMensajes();
 
         return $despedida;
     }
 
-    public function almacenarSaludos() : void {
+    /**
+     * Almacena los 3 últimos saludos/despedidas
+     */
+    public function almacenarUltimosMensajes() : void {
         if (count($this->ultimosSaludos) > 3) {
             array_shift($this->ultimosSaludos);
         }

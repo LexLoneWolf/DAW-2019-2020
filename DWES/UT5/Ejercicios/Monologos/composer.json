@@ -16,6 +16,7 @@
         "psr-4": { "Dwes\\": "app/Dwes" }
     },
     "scripts": {
-        "test": "phpunit --testdox --colors tests"
+        "test": "phpunit --testdox --colors tests",
+        "coverage": "phpunit --coverage-html coverage --coverage-filter app tests"
     }
 }
