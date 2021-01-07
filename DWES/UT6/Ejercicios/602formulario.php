@@ -36,7 +36,8 @@
 
             <input type="submit" value="enviar" />
         </form>
-    }
+    <?php } ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,29 +47,6 @@
     <title>602formulario</title>
 </head>
 <body>
-
-    
-
-    <table border=1>
-        <tr>
-            <th>Nombre:</th>
-            <td><?= $nombre ?></td>
-        </tr>
-        <tr>
-            <th>Email</th>
-            <td><?= $email ?></td>
-        </tr>
-        <tr>
-            <th>Página personal</th>
-            <td><?= $url ?></td>
-        </tr>
-        <tr>
-            <th>Número de convivientes</th>
-            <td><?= $convivientes ?></td>
-        </tr>
-    </table>
-
-
-
+        
 </body>
 </html>
