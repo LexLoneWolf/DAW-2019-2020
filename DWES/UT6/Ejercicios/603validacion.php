@@ -20,6 +20,7 @@
                 <th>Número de convivientes</th>
                 <td><?= $_POST["convivientes"] ?></td>
             </tr>
+            <?php if(isset($_POST["aficiones"])) { ?>
             <tr>
                 <th>Aficiones</th>
                 <td>
@@ -31,6 +32,8 @@
                     </ul>
                 </td>
             </tr>
+            <?php }
+            if (isset($_POST["menu"])) { ?>
             <tr>
                 <th>Platos favoritos</th>
                 <td>
@@ -42,12 +45,13 @@
                     </ul>
                 </td>
             </tr>
+            <?php } ?>
         </table>
     <?php  } else { ?>
         <script src="603validacion.js"></script>
         <form id="formulario" action="603validacion.php" method="POST">
             <label for="nombre">Nombre: </label>
-            <input type="text" id="nombre" name="nombre" required /><br />
+            <input type="text" id="nombre" name="nombre" /><br />
 
             <label for="apellidos">Apellidos: </label>
             <input type="text" id="apellidos" name="apellidos" required /><br />
