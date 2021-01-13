@@ -4,7 +4,7 @@ $color = $_POST["color"] ?? "#333";
 if (isset($POST['Seleccionar'])) {
     setcookie('color', $color);
 } else {
-    if (isset($_COOKIE['accesos'])) {
+    if (isset($_COOKIE['color'])) {
         $cookieColor = $_COOKIE['color'];
     }
 }
