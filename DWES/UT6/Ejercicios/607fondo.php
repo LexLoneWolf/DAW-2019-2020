@@ -9,7 +9,7 @@ if (isset($POST['Seleccionar'])) {
     }
 }
 
-setcookie('color', $color, 86400);
+setcookie('color', $color, time()+86400);
 
 ?>
 
