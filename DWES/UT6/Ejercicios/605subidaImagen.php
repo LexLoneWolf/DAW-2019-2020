@@ -3,8 +3,6 @@
 $anchura = $_POST["anchura"] ?? 0;
 $altura = $_POST["altura"] ?? 0;
 $alturaErr = $anchuraErr = $archivoErr = "";
-$tiposImagen = ["image/gif", "image/png", "image/jpeg", "image/jpg", "image/bmp", "image/webp"];
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
@@ -21,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($altura) && isset($anchura)) {
         if (is_uploaded_file($_FILES['archivoEnviado']['tmp_name'])) {
             if ($_FILES['archivoEnviado']['size'] < 3E+6) {
-                if (in_array($_FILES['archivoEnviado']['type'], $tiposImagen)) {
+                if (substr($_FILES['archivoEnviado']['type'], 0, 5) == "image") {
                     $nombre = $_FILES['archivoEnviado']['name'];
                     move_uploaded_file($_FILES['archivoEnviado']['tmp_name'], "./uploads/{$nombre}");
                 } else {
@@ -35,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -44,10 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>.error {color: #FF0000}</style>
-    <title>604subida</title>
+    <title>604subidaImagen</title>
 </head>
 <body>
-
     <form enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
         <label for="anchura">Anchura:</label>
         <input type="number" name="anchura" value="<?= $anchura ?>" required />
