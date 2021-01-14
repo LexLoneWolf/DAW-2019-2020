@@ -1,14 +1,15 @@
 <?php 
 
 session_start();
-$color = $_POST["color"] ?? "#333";
-$_SESSION['color'] = $color;
 
-if (isset($POST['Seleccionar'])) {
-    $_SESSION['color'] = $color;
+if (isset($_SESSION['color'])) {
+    $sesionColor = $_SESSION['color'];
+    if (isset($_POST['Seleccionar'])) {
+        $_SESSION['color'] = $_POST['color'];
+    }
 } else {
-    if (isset($_SESSION['color'])) {
-        $sesionColor = $_SESSION['color'];
+    if (isset($_POST['Seleccionar'])) {
+        $_SESSION['color'] = $_POST['color'];
     }
 }
 
@@ -19,16 +20,16 @@ if (isset($POST['Seleccionar'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>body {background-color: <?= $sesionColor ?>; color:#FFF;} :link, :visited{color:#FFF}</style>
+    <style>body {background-color: <?= $sesionColor ?>; }</style>
     <title>607fondoSesion1</title>
 </head>
 <body>
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
         <label for="color">Selecciona un color</label>
         <input type="color" name="color" />   
-        <input type="submit" value="Seleccionar" />
+        <input type="submit" name="Seleccionar" value="Seleccionar" />
     </form>
 
-    <p><a href="608fondoSesion2.php">Sesión 2</a></p>
+    <p><a href="608fondoSesion2.php"><button>Sesión 2</button></a></p>
 </body>
 </html>

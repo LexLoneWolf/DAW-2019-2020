@@ -135,7 +135,7 @@
         </table>
     <?php  } else { ?>
         <script src="603validacion.js"></script>
-        <form id="formulario" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" onsubmit="return validarFormulario()">
+        <form id="formulario" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" onsubmit="return validarFormulario()">
             <label for="nombre">Nombre: </label>
             <input type="text" id="nombre" name="nombre" value="<?= $nombre ?>" required/>
             <span class="error">* <?= $nombreErr ?></span><br />

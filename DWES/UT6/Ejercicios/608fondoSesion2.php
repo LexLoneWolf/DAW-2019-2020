@@ -1,7 +1,16 @@
 <?php 
 session_start();
-$sesionColor = $_SESSION['color'];
-echo $sesionColor;
+
+if (isset($_SESSION['color'])) {
+    $sesionColor = $_SESSION['color'];
+}
+
+if (isset($_POST['cerrarSesion'])) {
+    session_destroy();
+    header("Location: 608fondoSesion1.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -9,10 +18,14 @@ echo $sesionColor;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>body {background-color: <?= $sesionColor ?>; color:#FFF;} :link, :visited{color:#FFF}</style>
+    <style>body {background-color: <?= $sesionColor ?>; }</style>
     <title>609fondoSesion2</title>
 </head>
 <body>
-    <p><a href="608fondoSesion1.php">Sesión 1</a></p>
+    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+        <input type="submit" name="cerrarSesion" value="Cerrar Sesión" />
+    </form>
+    <p><a href="608fondoSesion1.php"><button>Volver</button></a></p>
+    
 </body>
 </html>
