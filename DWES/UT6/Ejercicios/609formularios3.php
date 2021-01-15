@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>.error {color: #FF0000}</style>
-    <title>609formularios3</title>
-</head>
-<body>
-    
 <?php
 
 session_start();
@@ -40,11 +30,20 @@ if ($ok) {
     header("Location: 609formulariosResumen.php");
     exit();
 }
-
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>.error {color: #FF0000}</style>
+    <title>609formularios3</title>
+</head>
+<body>
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
         <label for="convivientes">Numero de convivientes en el domicilio</label>
-        <input type="number" id="convivientes" name="convivientes" value="<?= $convivientes ?>" required />
+        <input type="number" id="convivientes" name="convivientes" value="<?= $convivientes ?>" required="true" />
         <span class="error">* <?= $convivientesErr ?></span><br />
         
         <label for="aficiones[]">Aficiones</label><br />

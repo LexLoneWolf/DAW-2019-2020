@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>.error {color: #FF0000}</style>
-    <title>609formularios2</title>
-</head>
-<body>
 <?php  
 
 session_start();
@@ -55,23 +46,32 @@ if ($ok) {
     exit();
 } ?>
 
-<form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>.error {color: #FF0000}</style>
+    <title>609formularios2</title>
+</head>
+<body>
+    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
 
-    <label for="email">Email: </label>
-    <input type="email" name="email" id="email" value="<?= $email ?>" required />
-    <span class="error">* <?= $emailErr ?></span><br />
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" value="<?= $email ?>" required="true" />
+        <span class="error">* <?= $emailErr ?></span><br />
 
-    <label for="url">URL página personal</label>
-    <input type="url" name="url" id="url" value="<?= $url ?>" required />
-    <span class="error">* <?= $urlErr ?></span><br />
+        <label for="url">URL página personal</label>
+        <input type="url" name="url" id="url" value="<?= $url ?>" required="true" />
+        <span class="error">* <?= $urlErr ?></span><br />
 
-    <input type="radio" name="genero" value="hombre" <?php if(isset($genero) && $genero == "hombre") echo "checked"; ?>/> Hombre
-    <input type="radio" name="genero" id="mujer" value="mujer" <?php if(isset($genero) && $genero == "mujer") echo "checked"; ?>/> Mujer
-    <input type="radio" name="genero" id="otro" value="otro" <?php if(isset($genero) && $genero == "otro") echo "checked"; ?>/> Otro
-    <span class="error">*  <?= $generoErr ?></span><br />
+        <input type="radio" name="genero" value="hombre" <?php if(isset($genero) && $genero == "hombre") echo "checked"; ?>/> Hombre
+        <input type="radio" name="genero" id="mujer" value="mujer" <?php if(isset($genero) && $genero == "mujer") echo "checked"; ?>/> Mujer
+        <input type="radio" name="genero" id="otro" value="otro" <?php if(isset($genero) && $genero == "otro") echo "checked"; ?>/> Otro
+        <span class="error">*  <?= $generoErr ?></span><br />
 
-    <input type="submit" value="Siguiente" />
+        <input type="submit" value="Siguiente" />
 
-</form>
+    </form>
 </body>
 </html>

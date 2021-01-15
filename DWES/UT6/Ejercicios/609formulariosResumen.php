@@ -42,7 +42,7 @@ $menu = $_SESSION['menu'];
             <th>Número de convivientes</th>
             <td><?= $convivientes ?></td>
         </tr>
-        <?php if(isset($aficiones)) { ?>
+        <?php if(!empty($aficiones)) { ?>
         <tr>
             <th>Aficiones</th>
             <td>
@@ -55,7 +55,7 @@ $menu = $_SESSION['menu'];
             </td>
         </tr>
         <?php }
-        if (isset($menu)) { ?>
+        if (!empty($menu)) { ?>
         <tr>
             <th>Platos favoritos</th>
             <td>
