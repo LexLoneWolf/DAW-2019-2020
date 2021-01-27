@@ -1,0 +1,58 @@
+body {
+    color: #FFF;
+    background-color: #202020;
+}
+
+/*h2 {
+    background-color: #0000004f;
+}
+
+ .sec1, .sec2, .sec3{
+    width: 300px;
+    height: 100px;
+    border: 1px solid #af995d;
+    padding: 50px;
+    box-sizing: content-box;
+    display: inline-block;
+}
+
+.sec2 {
+    right: 50px;
+    box-sizing: border-box;
+    width: 300px;
+    float: left; 
+}*/
+
+#contenedor {
+    width: 900px;
+    height: 400px;
+    margin: auto;
+}
+
+header {
+    height: 50px;
+    padding: 5px;
+    background-color: #568d8f;
+}
+
+nav {
+    background-color: #474747;
+    width: 140px;
+    height: 100%;
+    float: left;
+    padding: 5px;
+}
+
+main {
+    background-color: #264044;
+    height: 100%;
+    width: 740px;
+    float: left;
+    padding: 5px;
+}
+
+footer {
+    background-color: #000000;
+    clear: both;
+    padding: 5px;
+}

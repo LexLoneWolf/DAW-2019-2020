@@ -147,20 +147,20 @@
 //     }
 // }
 
-let numeros = [];
-let mayor = 0;
-let pos = 0;
-for (let i = 0; i < 20; i++) {
-    numeros[i] = Math.floor(Math.random() * 100)+1;
-    if (mayor < numeros[i]) {
-        mayor = numeros[i];
-        pos = i;
-    }
-}
+// let numeros = [];
+// let mayor = 0;
+// let pos = 0;
+// for (let i = 0; i < 20; i++) {
+//     numeros[i] = Math.floor(Math.random() * 100)+1;
+//     if (mayor < numeros[i]) {
+//         mayor = numeros[i];
+//         pos = i;
+//     }
+// }
 
-for (let i = 0; i < numeros.length; i++) {
-    console.log(numeros[i]);
-}
+// for (let i = 0; i < numeros.length; i++) {
+//     console.log(numeros[i]);
+// }
 
 
 // mayor = -1;
@@ -268,12 +268,89 @@ let notas = [
     ["Pedro", 4]   
 ];
 
-console.log(notas.every(nota =>nota[1]>=5));
+// console.log(notas.every(nota =>nota[1]>=5));
 
-console.log(notas.some(nota =>nota[1]>=5));
+// console.log(notas.some(nota =>nota[1]>=5));
 
-console.log(numeros.map(num=>num+10));
+// console.log(numeros.map(num=>num+10));
 
-console.log(notas.filter(nota=>nota[1]>=5));
+// console.log(notas.filter(nota=>nota[1]>=5));
 
-console.log(numeros.reduce((acum,item) =>acum+=item,-1000));
+// console.log(numeros.reduce((acum,item) =>acum+=item,-1000));
+
+
+// notas.sort((a,b)=>a[1]-b[1]);
+
+// document.write("<table border='1'>");
+
+// notas.forEach(item => {
+//     let tdRojo = "<tr><td style='color:red';>";
+//     let tdVerde = "<tr><td style='color:green';>";
+//     let tdAmarillo = "<tr><td style='color:yellow';>";
+//     let cierraTd = document.write("</td></tr>"); 
+//     if (item[1] < 5) {
+//         document.write(tdRojo);
+//         document.write(item);   
+//         cierraTd;
+//     } else if (item[1] < 7) {
+//         document.write(tdAmarillo);
+//         document.write(item);
+//         cierraTd;
+//     } else {
+//         document.write(tdVerde);
+//         document.write(item);
+//         cierraTd; 
+//     }
+// });
+
+// document.write("</table>");
+
+// function pruebaRest(...numeros) {
+//     let res = 0;
+//     for (let i = 0; i < numeros.length; i++) {
+//         res+= numeros[i];
+//     }
+
+//     return res;
+// }
+
+// function mediaRest(...notas) {
+
+//     let suma = 0;
+//     let media= 0;
+
+//     console.log("Notas introducidas: "+notas.length);
+
+//     for (let i = 0; i < notas.length; i++) {
+//         suma+= notas[i];
+//         console.log("Nota "+i+": "+notas[i]);
+//     }
+//     media = "La media es: " + (suma/notas.length);
+//     return media;
+// }
+
+// console.log(pruebaRest(5,5,5,5));
+
+// console.log(mediaRest(5,5,6,7,8,5,5,7));
+
+
+function numeroMayor(...numeros) {
+    let mayor = 0;
+
+    console.log("Números introducidos: "+ numeros.length);
+
+    for (let i = 0; i < numeros.length-1; i++) {
+        if (numeros[i] > numeros[i+1]) {
+            mayor = numeros[i];
+        } else {
+            mayor = numeros[i+1];
+        }
+    }
+    console.log(mayor);
+}
+
+numeroMayor(1,2,3,4,5,6,7,8,9);
+
+
+
+

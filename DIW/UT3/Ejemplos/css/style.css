@@ -1,7 +1,11 @@
+
 * {
     color: #FFF;
 }
 
+html {
+    font-size: 20px;
+}
 body {
     background-color: rgb(34, 34, 34);
 }
@@ -72,6 +76,69 @@ p::selection {
 li::selection {
     color: blueviolet;
     background-color: black;
+}
+
+
+#cm{
+    font-size: 1cm;
+}
+
+#mm{
+    font-size: 10mm;
+}
+
+#in{
+    font-size: 0.4in;
+}
+
+#pt{
+    font-size: 28pt;
+}
+
+#pc{
+    font-size: 2.2pc;
+}
+
+#em{
+    padding-left: 10em;
+    font-size: 15px;
+}
+
+#rem{
+    padding-left: 10rem;
+    font-size: 15px;
+}
+
+#px{
+    font-size: 30px;
+}
+
+#ex{
+    font-size: 3ex;
+}
+
+#ch{
+    font-size: 2.5ch;
+}
+
+#pcent{
+    font-size: 200%;
+}
+
+#vw{
+    font-size: 5vw;
+}
+
+#vh{
+    font-size: 5vh;
+}
+
+#vmin{
+    font-size: 5vmin;
+}
+
+#vmax{
+    font-size: 5vmax;
 }
 
 
