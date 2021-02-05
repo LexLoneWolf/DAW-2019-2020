@@ -8,7 +8,7 @@ class Tienda {
     private string $nombre;
     private int $tlf;  
     
-    public function __construct(int $cod, string $nombre, string $tlf) {
+    public function __construct(int $cod = 0, string $nombre = null, string $tlf = null) {
         $this->cod = $cod;
         $this->nombre = $nombre;
         $this->tlf = $tlf;   
@@ -28,10 +28,6 @@ class Tienda {
 
     public function getTlf() : int {
         return $this->tlf;
-    }
-
-    public function setCod(int $cod) {
-        $this->cod = $cod;
     }
 
     public function getCod() : int {

@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'f7fc4f7aa11d72cecaafbff64227f3c03b3c59f0',
+    'reference' => 'b64592636a586a56a235d4dcf3dc8ca5465617d1',
     'name' => 'alexis/proyecto-tienda',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'f7fc4f7aa11d72cecaafbff64227f3c03b3c59f0',
+      'reference' => 'b64592636a586a56a235d4dcf3dc8ca5465617d1',
     ),
     'monolog/monolog' => 
     array (

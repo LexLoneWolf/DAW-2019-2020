@@ -2,17 +2,15 @@
 
 namespace Dwes\Tienda\Util;
 
-include "../../../config/configuracion.php";
-
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
 use Monolog\Handler\RotatingFileHandler;
 
 class LogFactory {
 
-    public static function getLogger($canal = "TiendaLogger") : LoggerInterface {
+    public static function getLogger(string $canal = "TiendaLogger", string $ruta = "config/logs/tienda.log") : LoggerInterface {
         $log = new Logger($canal);
-        $log->pushHandler(new RotatingFileHandler(RUTALOGS, 0, Logger::DEBUG));
+        $log->pushHandler(new RotatingFileHandler($ruta, 0, Logger::DEBUG));
         return $log;
     }
 }

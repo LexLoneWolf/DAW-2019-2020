@@ -1,6 +1,6 @@
 <?php 
 
-namespace Dwes\Tienda;
+namespace Dwes\Tienda\Util;
 
 use Exception;
 

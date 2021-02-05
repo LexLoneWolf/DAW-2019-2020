@@ -1,9 +1,8 @@
 <?php 
 
-namespace Dwes\Tienda;
-
-if (!isset($tlf) && !isset($nombre)) {
+if (!isset($tlf) && !isset($nombre) && !isset($cantTiendas)) {
     $nombre = $tlf = "";
+    $cantTiendas = 0;
 }
 
 if (!isset($nombreErr) ) {
@@ -14,6 +13,10 @@ if (!isset($tlfErr)) {
     $tlfErr = "";
 }
 
+if (!isset($cantTiendasErr)) {
+    $cantTiendasErr = ""; 
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -22,17 +25,21 @@ if (!isset($tlfErr)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>.error{color:#FF0000}</style>
-    <title>Alta Tienda</title>
+    <title>Alta Franquicia</title>
 </head>
 <body>
-    <form action="altaTienda.php" method="POST">
+    <form action="altaFranquicia.php" method="POST">
         <label for="nombre">Nombre: </label>
         <input type="text" name="nombre" value="<?= $nombre ?>" />
         <span class="error">* <?= $nombreErr ?></span><br />
 
         <label for="tlf">Teléfono: </label>
         <input type="text" name="tlf" value="<?= $tlf ?>" />
-        <span class="error">* <?= $tlfErr ?></span><br />
+        <span class="error"><?= $tlfErr ?></span><br />
+
+        <label for="cantTiendas">Número de tiendas: </label>
+        <input type="number" name="cantTiendas" value="<?= $cantTiendas ?>" />
+        <span class="error"><?= $cantTiendasErr ?></span><br />
         
         <input type="submit" name="enviar" value="Enviar" />
     </form>
