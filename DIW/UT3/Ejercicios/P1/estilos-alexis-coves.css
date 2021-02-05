@@ -1,0 +1,280 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    color: #dadada;
+    min-width: 1080px;
+    background-color: #000000;
+    font-family: 'Cinzel', serif;
+    background-image: url(./resources/background.png);
+    background-repeat: no-repeat; 
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    cursor: url("./resources/cursor.png"), auto;
+}
+
+header {
+    width: 65%;
+    height: 20%;
+    background-image: url(./resources/hollowHeaderBack.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+header img {
+    height: 70%;
+    margin-left: 5%;
+}
+
+nav {
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    background-color: #000000c5;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 20px;
+    text-shadow: 1px 1px #000000;
+    color: #FFFFFF;
+}
+
+nav a:visited {
+    color: #dadada;
+}
+
+nav a:hover {
+    border-bottom: 1px solid #dadada;
+    cursor: url("./resources/cursor.png"), auto;
+}
+
+nav ul {
+    padding: 6px;
+    margin-right: 5%;
+    text-align: right;
+}
+
+nav ul li {
+    padding-left: 10%;
+    display: inline;
+}
+
+main {
+    width: 65%;
+    height: 75%;
+    min-height: 700px;
+}
+
+section {
+    height: 100%;
+    float: left;
+    
+}
+
+h2 {
+    text-align: center;
+    font-weight: normal;
+    text-decoration: underline;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#col1 {
+    height: 100%;
+    width: 45%; 
+}
+
+
+#col1 #art1:hover img {
+   filter: saturate(120%) brightness(130%); 
+}
+
+#col1 #art1 {
+    width: 100%;
+    height: 60%;
+    text-align: center;
+    background: rgb(4,13,19);
+    background: linear-gradient(0deg, #03080c 10%, #051b29 46%);
+    box-shadow: inset 0px 0px 23px 18px #000000bf;
+}
+
+#col1 #art1 img {
+    width:73%;
+    transition: ease-in-out 0.2s;
+}
+
+#col1 #art1 section {
+    margin-top: -5px;
+    height: 45%;
+    overflow: auto;
+    overflow-x: hidden;
+    background: rgb(4,13,19);
+    background: linear-gradient(0deg, #03080c 10%, #051b29 46%);
+    box-shadow: inset 0px 0px 23px 18px #000000bf;
+}
+
+#col1 #art1 p {
+    font-size: 18px; 
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: justify;
+    line-height: 25px;
+    overflow: hidden;
+    text-shadow: 1px 1px#000000;
+}
+
+#col1 #art2 {
+    width: 100%;
+    height: 40%;
+    text-align: center;
+    background: rgb(4,13,19);
+    background: linear-gradient(0deg, #03080c 10%, #051b29 46%);
+    box-shadow: inset 0px 0px 23px 18px #000000bf;
+    overflow: auto;
+}
+
+#col1 ul {
+    list-style-type: square;
+    text-align: justify;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 0;
+}
+
+#col1 ul li {
+    font-size: 18px;
+    text-shadow: 1px 1px#000000;
+}
+
+#col1 ul li ul {
+    list-style-type: disc;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+#col2 {
+    height: 100%;
+    width: 20%;  
+}
+
+#col2 article {
+    position: relative;
+    height: 33.34%;
+    width: 100%;
+    align-content: center;
+    background-color: #051b29;
+    transition: ease-in-out 0.2s;
+}
+
+#col2 h2 {
+    position: absolute;
+    margin: 0;
+    left: 85px;
+    padding-top: 2%;
+    background-color: #000000c4;
+}
+
+#col2 article:hover {
+   filter: saturate(120%) brightness(130%);
+}
+
+
+#col2 article img {
+    width: 100%;
+    max-height: 100%;
+}
+
+#col3 {
+    height: 100%;
+    width: 35%;
+}
+
+#col3 aside {
+    text-align: center;
+    height: 55%;
+    width: 100%;
+    background: rgb(4,13,19);
+    background: linear-gradient(0deg, #03080c 10%, #051b29 46%);
+    box-shadow: inset 0px 0px 23px 18px #000000bf;
+}
+
+#col3 aside section {
+    margin-top: -5px;
+    height: 45%;
+}
+
+#col3 aside img {
+    width: 92%;
+    transition: ease-in-out 0.2s;
+}
+
+#col3 aside:hover img   {
+    filter: saturate(120%) brightness(130%);
+}
+
+#col3 article {
+    height: 45%;
+    width: 100%;
+    text-align: center;
+    background: rgb(4,13,19);
+    background: linear-gradient(0deg, #03080c 10%, #051b29 46%);
+    box-shadow: inset 0px 0px 23px 18px #000000bf;
+    transition: ease-in-out 0.2s;
+}
+
+#col3 article:hover img {
+    filter: saturate(120%) brightness(130%);
+}
+
+#col3 section {
+    width: 100%;
+    height: 40%;
+    overflow: auto;
+    background: rgb(4,13,19);
+    background: linear-gradient(0deg, #03080c 10%, #051b29 46%);
+    box-shadow: inset 0px 0px 23px 18px #000000bf;
+}
+
+#col3 article img {
+   width: 62%;
+   transition: ease-in-out 0.2s;
+}
+
+#col3 article section {
+    margin-top: -5px;
+    width: 100%;
+    height: 50%;
+    overflow: auto;
+    background: rgb(4,13,19);
+    background: linear-gradient(0deg, #03080c 10%, #051b29 46%);
+    box-shadow: inset 0px 0px 23px 18px #000000bf;
+}
+
+#col3 p {
+    font-size: 18px;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: justify;
+    line-height: 25px;
+    overflow: hidden;
+    text-shadow: 1px 1px#000000;
+}
+
+footer {
+    height: 5%;
+    width: 65%;
+    background-color: #000000;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+footer p {
+    padding-top: 1%;
+}

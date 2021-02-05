@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIW HTML5</title>
+</head>
+
+<body>
+    <p>ENCABEZADOS</p>
+    <h1>Bienvenidos a DIW</h1>
+    <h2>Bienvenidos a DIW</h2>
+    <h3>Bienvenidos a DIW</h3>
+    <h4>Bienvenidos a DIW</h4>
+    <h5>Bienvenidos a DIW</h5>
+    <h6>Bienvenidos a DIW</h6>
+    <p>FORMATOS</p>
+    <pre>1    2       3           4</pre>
+
+    <p style="color:#e25f2b;">Texto de ejemplo</p>
+    <p style="color:#2be2c3;">Texto de ejemplo</p>
+    <p style="color:rgba(137, 43, 226, 0.568);">Texto de ejemplo</p>
+
+    <p><b>Negrita</b></p>
+    <p><em>Cursiva</em></p>
+    <p><small>Pequeño</small></p>
+    <p><strong>Importante</strong></p>
+    <p><sub>Subíndice</sub></p>
+    <p><sup>Superíndice</sup></p>
+    <p><ins>Subrayado</ins></p>
+    <p><del>Rayado</del></p>
+    <p><mark>Marca</mark></p>
+    <p>IMAGENES</p>
+    <img src="./img/fondo.jpg" alt="Imagen" style="width: 300px;">
+    <br />
+    <p><a href="./img/fondo.jpg" target="_blank">Pincha</a></p>
+
+    <br />
+    <p>TABLAS</p>
+    <table border="1" style="text-align: center;">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td colspan="3">0</td>
+        </tr>
+    </table>
+
+    <br />
+    <table border="1" style="text-align: center;">
+        <caption>TITULO</caption>
+        <tr>
+            <td colspan="2">1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td rowspan="2" colspan="2">5</td>
+            <td rowspan="3">6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>9</td>
+            <td>0</td>
+        </tr>
+    </table>
+
+    <br />
+    <p>FORMULARIOS</p>
+    <form id="ejemplo" action="ejemplo.html" method="GET">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo" maxlength="30"/><br />
+
+        <label for="pass">Contraseña:</label>
+        <input type="password" id="pass" name="pass" placeholder="Contraseña"/><br />
+
+        <input type="hidden" id="oculto" name="oculto" value="contraseñausuario" /><br />
+
+        <input type="radio" name="opcion" id="opcion1" value="opcion1" />Opción 1<br />
+        <input type="radio" name="opcion" id="opcion2" value="opcion2" />Opción 2<br />
+
+        <input type="checkbox" name="condiciones" checked />Condición<br />
+
+        <label for="color">Elija un color</label>
+        <input type="color" name="condiciones" checked />Condición<br />
+
+        <label for="time">Hora</label>
+        <input type="time" name="hora" /><br>
+
+        <label for="fecha">Fecha</label>
+        <input type="date" name="fecha" /><br>
+
+        <label for="mes">Mes</label>
+        <input type="month" name="mes" /><br />
+
+        <label for="semana">Semana</label>
+        <input type="week" name="semana" /><br />
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Email" /><br />
+
+        <label for="numero">Número</label>
+        <input type="number" name="numero" step="5" min="0" max="100"/><br />
+
+        <label for="rango">Rango</label>
+        <input type="range" name="rango" step="10" /><br />
+
+        <label for="buscar">Buscar</label>
+        <input type="search" name="buscar" /><br />
+
+        <label for="telefono">Teléfono</label>
+        <input type="tel" name="telefono" /><br />
+
+        <label for="url">Enlace</label>
+        <input type="url" name="link" id="link" /><br />
+
+        <textarea name="texto" id="texto" cols="15" rows="10" placeholder="texto de prueba">
+            TEXTO
+        </textarea><br />
+
+        <select name="desplegable" id="desplegable" multiple size="2">
+            <option value="opcion1">Opción 1</option>
+            <option value="opcion2" selected>Opción 2</option>
+            <option value="opcion3">Opción 3</option>
+        </select><br />
+
+        <input list="lista" name="elementos"/>
+        <datalist id="lista">
+            <option value="elemento1">Elemento 1</option>
+            <option value="elemento2">Elemento 2</option>
+            <option value="elemento3">Elemento 3</option>   
+        </datalist>
+
+
+
+        <button type="button" onclick="alert('=D');">Click<br/>Me</button><br />
+            
+        <input type="submit" value="Botón Submit" /><br />
+
+        <input type="button" value="Botón onclick submit" onclick="submit();" />
+    </form>
+
+    <table border="1" style="text-align: center;">
+        <tr>
+            <td>1</td>
+            <td colspan="3">2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td rowspan="2">8</td>
+            <td>9</td>
+            <td rowspan="3">10</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td colspan="2">13</td>
+            <td>14</td>
+        </tr>
+    </table>
+
+    <table border="1" style="text-align: center;">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td colspan="3">8</td>
+            <td rowspan="2">9</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>12</td>
+            <td colspan="2" rowspan="2">13</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td colspan="2">16</td>
+            <td>17</td>
+            <td>18</td>
+        </tr>
+    </table>
+
+    
+</body>
+
+</html>
