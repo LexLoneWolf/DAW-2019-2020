@@ -56,3 +56,49 @@ footer {
     clear: both;
     padding: 5px;
 }
+
+div {
+    width: 30%;
+    height: 100px;
+    margin: 10px;
+    /* float: left; */
+    background-color: #546585;
+    overflow: auto;
+}
+
+#especial {
+    background-color: #00ffff;
+    /* visibility: hidden; */
+    display: none;
+
+}
+
+span {
+    display: block;
+}
+
+.z {
+    position: absolute;
+}
+
+#a {
+    background-color: #556b2f;
+    top: 50px;
+    left: 200px;
+    z-index: 1;
+}
+
+#b {
+    background-color: #439b88;
+    top: 80px;
+    left: 230px;
+    z-index: 2;
+}
+
+#c {
+    background-color: #7c852d;
+    top: 110px;
+    left: 260px;
+    z-index: 3;
+}
+
