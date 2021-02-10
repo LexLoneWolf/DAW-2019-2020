@@ -29,7 +29,7 @@ class PDOFamiliaRepository implements FamiliaRepository {
             
             $sql = "SELECT * FROM familia";
             $sentencia = $conexion->prepare($sql);
-            $sentencia->setFetchMode(PDO::FETCH_CLASS, Dwes\Familia::class);
+            $sentencia->setFetchMode(PDO::FETCH_CLASS, Familia::class);
             $sentencia->execute();
             
             while ($fila = $sentencia->fetch()) {

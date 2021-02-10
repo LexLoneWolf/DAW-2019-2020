@@ -29,7 +29,7 @@ class PDOTiendaRepository implements TiendaRepository {
             
             $sql = "SELECT * FROM tienda";
             $sentencia = $conexion->prepare($sql);
-            $sentencia->setFetchMode(PDO::FETCH_CLASS, Dwes\Tienda::class);
+            $sentencia->setFetchMode(PDO::FETCH_CLASS, Tienda::class);
             $sentencia->execute();
             
     

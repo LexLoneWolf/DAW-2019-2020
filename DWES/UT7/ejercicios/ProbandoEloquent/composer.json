@@ -1,0 +1,19 @@
+{
+    "name": "alexis/probando-eloquent",
+    "description": "Prueba de ORM Eloquent",
+    "type": "project",
+    "require": {
+        "monolog/monolog": "^2.2",
+        "illuminate/database": "^8.26"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "authors": [{
+        "name": "LexLoneWolf",
+        "email": "lareone91@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": { "Dwes\\": "app/Dwes" }
+    }
+}

@@ -28,5 +28,6 @@
     <a href="formAltaTienda.php"><button>Nueva Tienda</button></a>
     <a href="formAltaFranquicia.php"><button>Nueva Franquicia</button></a>
     <a href="formAltaFamilia.php"><button>Nueva Familia</button></a>
+    <a href="formAltaProducto.php"><button>Nuevo Producto</button></a>
 </body>
 </html>
